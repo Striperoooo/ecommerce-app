@@ -1,6 +1,7 @@
+// Use the new PostCSS adapter package for Tailwind
 module.exports = {
-    plugins: {
-        tailwindcss: {},
-        autoprefixer: {},
-    },
+    plugins: [
+        // Keep autoprefixer enabled for vendor prefixing.
+        require('autoprefixer'),
+    ],
 }
