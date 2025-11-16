@@ -1,3 +1,15 @@
 @import "tailwindcss";
 
+/* global component imports can go here */
+
+@layer base {
+
+    /* make the project's default sans font the one configured in tailwind.config */
+    html,
+    body {
+        /* explicit test: set Manrope directly to verify the font loads in-browser */
+        font-family: 'Manrope', ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Color Emoji", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    }
+}
+
 /* Add any custom global styles below */
