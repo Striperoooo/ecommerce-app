@@ -20,6 +20,7 @@ interface Props {
     variant?: Variant; // which design variant to use
     as?: ElementType; // optional override for the underlying tag
     className?: string; // additional classes to merge
+    textColor?: string
     children?: React.ReactNode; // content
 }
 
@@ -27,6 +28,7 @@ export default function Typography({
     variant = 'p',
     as,
     className = '',
+    textColor,
     children,
     ...props
 }: Props & React.HTMLAttributes<HTMLElement>) {
@@ -39,7 +41,7 @@ export default function Typography({
     const Tag = (as || defaultTag) as ElementType;
 
     return (
-        <Tag className={`${variantClass} ${className}`.trim()} {...props}>
+        <Tag className={`${variantClass} ${textColor} ${className}`.trim()} {...props}>
             {children}
         </Tag>
     );
