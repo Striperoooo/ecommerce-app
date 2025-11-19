@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-/* global component imports can go here */
 
 @layer base {
 
@@ -13,3 +12,12 @@
 }
 
 /* Add any custom global styles below */
+@theme {
+    --color-d8: #D87D4A;
+    --color-fba: #FBAF85;
+    --color-orange-active: #e66418ff;
+    --color-black-hover: #383838;
+    --color-1010: #101010;
+    --color-f1f1: #F1F1F1;
+    --color-fafa: #FAFAFA;
+}
