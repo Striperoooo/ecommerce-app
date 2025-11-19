@@ -16,9 +16,9 @@ const variantMap = {
         active: 'active:bg-black-hover',
     },
     tertiary: {
-        className: 'bg-transparent text-brand px-3 py-1 uppercase cursor-pointer',
-        hover: 'hover:bg-brand-50/30',
-        active: 'active:opacity-80',
+        className: 'bg-transparent font-bold text-black/50 text-brand px-3 py-1 uppercase cursor-pointer after-chevron',
+        hover: 'hover:text-d8',
+        active: 'active:text-orange-active',
     },
 } as const;
 

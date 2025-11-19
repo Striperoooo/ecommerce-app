@@ -21,3 +21,11 @@
     --color-f1f1: #F1F1F1;
     --color-fafa: #FAFAFA;
 }
+
+@utility after-chevron {
+    &::after {
+        content: ">";
+        font-weight: bold;
+        color: #D87D4A;
+    }
+}
