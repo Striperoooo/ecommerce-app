@@ -48,7 +48,7 @@ export default function Button({
 
     const baseClass = 'inline-flex items-center justify-center gap-2 transition ease-in-out';
 
-    // merge all class pieces into a single string (explicit concatenation)
+    // merge all class pieces into a single string
     const combined = `${baseClass} ${variantClass} ${variantHover} ${variantActive} ${className}`.trim();
 
     // allow overriding the element type (button by default)
