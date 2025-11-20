@@ -1,5 +1,6 @@
 import Typography from "./ui/Typography"
 import Button from "./ui/Button"
+import QuantitySelector from "./ui/QuantitySelector"
 
 export default function Header() {
 
@@ -33,10 +34,8 @@ export default function Header() {
                     </label>
                 </div>
 
-                <div>
-                    <label htmlFor="quantity">Quantity:</label>
-                    <input type="number" id="quantity" name="quantity" min="0" defaultValue={1} />
-                </div>
+                <h3>Quantity</h3>
+                <QuantitySelector></QuantitySelector>
 
                 <button type="submit">Submit</button>
             </form>
