@@ -1,0 +1,48 @@
+import React from 'react';
+import type { ElementType } from 'react';
+
+// Simple mapping from variant -> default HTML tag + Tailwind class string
+const variantMap = {
+    h1: { tag: 'h1', className: 'font-bold text-[56px] leading-[58px] tracking-[2px] uppercase' },
+    h2: { tag: 'h2', className: 'font-bold text-[40px] leading-[44px] tracking-[1.5px] uppercase' },
+    h3: { tag: 'h3', className: 'font-bold text-[32px] leading-[36px] tracking-[1.15px] uppercase' },
+    h4: { tag: 'h4', className: 'font-bold text-[28px] leading-[38px] tracking-[2px] uppercase' },
+    h5: { tag: 'h5', className: 'font-bold text-[24px] leading-[33px] tracking-[1.7px] uppercase' },
+    h6: { tag: 'h6', className: 'font-bold text-[18px] leading-[24px] tracking-[1.3px] uppercase' },
+    overline: { tag: 'span', className: 'font-normal text-[14px] leading-[19px] tracking-[10px] uppercase' },
+    subtitle: { tag: 'span', className: 'font-bold text-[13px] leading-[25px] tracking-[1px] uppercase' },
+    p: { tag: 'p', className: 'font-medium text-[15px] leading-[25px]' },
+} as const;
+
+type Variant = keyof typeof variantMap; // 'h1' | 'h2' | ... inferred from the map
+
+interface Props {
+    variant?: Variant; // which design variant to use
+    as?: ElementType; // optional override for the underlying tag
+    className?: string; // additional classes to merge
+    textColor?: string
+    children?: React.ReactNode; // content
+}
+
+export default function Typography({
+    variant = 'p',
+    as,
+    className = '',
+    textColor,
+    children,
+    ...props
+}: Props & React.HTMLAttributes<HTMLElement>) {
+
+    const entry = variantMap[variant]
+
+    const defaultTag = entry.tag
+    const variantClass = entry.className
+
+    const Tag = (as || defaultTag) as ElementType;
+
+    return (
+        <Tag className={`${variantClass} ${textColor} ${className}`.trim()} {...props}>
+            {children}
+        </Tag>
+    );
+}

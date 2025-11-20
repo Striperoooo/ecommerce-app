@@ -1,6 +1,5 @@
 @import "tailwindcss";
-
-/* global component imports can go here */
+@plugin "@tailwindcss/forms";
 
 @layer base {
 
@@ -12,4 +11,54 @@
     }
 }
 
-/* Add any custom global styles below */
+@theme {
+    --color-d8: #D87D4A;
+    --color-fba: #FBAF85;
+    --color-orange-active: #e66418ff;
+    --color-black-hover: #383838;
+    --color-1010: #101010;
+    --color-f1f1: #F1F1F1;
+    --color-fafa: #FAFAFA;
+
+    --color-input-border: #CFCFCF;
+    --color-input-border-error: #CD2C2C;
+
+    --tracking-input-tracking: -0.016em;
+}
+
+@utility after-chevron {
+    &::after {
+        content: ">";
+        font-weight: bold;
+        color: #D87D4A;
+    }
+}
+
+@layer components {
+    .text-field {
+        @apply px-6 py-4.5 rounded-lg border border-input-border text-black font-bold text-sm tracking-input-tracking caret-d8 placeholder:text-black/40 focus:outline-none focus:border-d8 focus:ring-1 focus:ring-transparent;
+    }
+
+    .text-field.is-error {
+        @apply border-input-border-error focus:border-input-border-error focus:ring-transparent;
+    }
+
+    .radio-label-field {
+        @apply px-6 py-4.5 rounded-lg border border-input-border text-black font-bold text-sm tracking-input-tracking hover:border-d8;
+    }
+
+    .radio-input-field {
+        @apply mr-4 border-input-border text-d8 checked:outline-none checked:ring-0 checked:shadow-none checked:border-d8;
+
+    }
+
+    /* Fallback / explicit rule using :has() so the label border updates when
+       its child radio is checked. This works in browsers that support :has()
+       (your browser returned true in the diagnostics). We add this so the
+       visual change doesn't rely on Tailwind emitting a `group-checked` rule. */
+    .radio-label-field:has(input:checked) {
+        border-color: var(--color-d8);
+        outline: none;
+        box-shadow: 0 0 0 0px;
+    }
+}
