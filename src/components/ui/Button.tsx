@@ -8,7 +8,7 @@ const variantMap = {
         className:
             'bg-d8 font-bold text-white text-[13px]  tracking-[1px] px-7.5 py-3.75 uppercase cursor-pointer',
         hover: 'hover:bg-fba',
-        active: 'active:bg-e6',
+        active: 'active:bg-fba/75',
     },
     secondary: {
         className: 'bg-white border-2 border-black font-bold text-black text-[13px]  tracking-[1px] px-7.5 py-3.75 uppercase cursor-pointer',
