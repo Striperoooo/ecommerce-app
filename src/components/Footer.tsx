@@ -19,16 +19,16 @@ export default function Footer() {
 
                 <div className="flex flex-col items-center gap-4 ">
                     <a href="">
-                        <Typography variant="subtitle" className="text-white tracking-[2px] hover:text-d8">Home</Typography>
+                        <Typography variant="subtitle" className="text-white tracking-[2px] hover:text-d8 active:text-d8/75">Home</Typography>
                     </a>
                     <a href="">
-                        <Typography variant="subtitle" className="text-white tracking-[2px] hover:text-d8">Headphones</Typography>
+                        <Typography variant="subtitle" className="text-white tracking-[2px] hover:text-d8 active:text-d8/75">Headphones</Typography>
                     </a>
                     <a href="">
-                        <Typography variant="subtitle" className="text-white tracking-[2px] hover:text-d8">Speakers</Typography>
+                        <Typography variant="subtitle" className="text-white tracking-[2px] hover:text-d8 active:text-d8/75">Speakers</Typography>
                     </a>
                     <a href="">
-                        <Typography variant="subtitle" className="text-white tracking-[2px] hover:text-d8">Earphones</Typography>
+                        <Typography variant="subtitle" className="text-white tracking-[2px] hover:text-d8 active:text-d8/75">Earphones</Typography>
                     </a>
                 </div>
 
