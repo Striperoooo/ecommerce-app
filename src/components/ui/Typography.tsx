@@ -11,7 +11,8 @@ const variantMap = {
     h6: { tag: 'h6', className: 'font-bold text-[18px] leading-[24px] tracking-[1.3px] uppercase' },
     overline: { tag: 'span', className: 'font-normal text-[14px] leading-[19px] tracking-[10px] uppercase' },
     subtitle: { tag: 'span', className: 'font-bold text-[13px] leading-[25px] tracking-[1px] uppercase' },
-    p: { tag: 'p', className: 'font-medium text-[15px] leading-[25px]' },
+    p: { tag: 'p', className: 'font-medium text-[15px] leading-[25px]tracking-[0px]' },
+    pBold: { tag: 'p', className: 'font-bold text-[15px] leading-[25px]tracking-[0px]' },
 } as const;
 
 type Variant = keyof typeof variantMap; // 'h1' | 'h2' | ... inferred from the map
@@ -20,7 +21,6 @@ interface Props {
     variant?: Variant; // which design variant to use
     as?: ElementType; // optional override for the underlying tag
     className?: string; // additional classes to merge
-    textColor?: string
     children?: React.ReactNode; // content
 }
 
@@ -28,7 +28,6 @@ export default function Typography({
     variant = 'p',
     as,
     className = '',
-    textColor,
     children,
     ...props
 }: Props & React.HTMLAttributes<HTMLElement>) {
@@ -41,7 +40,7 @@ export default function Typography({
     const Tag = (as || defaultTag) as ElementType;
 
     return (
-        <Tag className={`${variantClass} ${textColor} ${className}`.trim()} {...props}>
+        <Tag className={`${variantClass} ${className}`.trim()} {...props}>
             {children}
         </Tag>
     );

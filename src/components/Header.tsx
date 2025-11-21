@@ -1,46 +1,29 @@
-import Typography from "./ui/Typography"
-import Button from "./ui/Button"
-import QuantitySelector from "./ui/QuantitySelector"
+import Burger from "../assets/shared/tablet/icon-hamburger.svg?react"
+import Logo from "../assets/shared/desktop/logo.svg?react"
+import Cart from "../assets/shared/desktop/icon-cart.svg?react"
 
 export default function Header() {
 
     return (
-        <div className="mx-auto my-10 font-medium text-gray-500">
-            <Typography variant="h3" textColor="text-purple-500">Fart</Typography>
-            <Button variant="primary">  SEE PRODUCT </Button>
-            <form className="my-10" action="#" method="post">
-                <div>
-                    <label htmlFor="username">Username:</label>
-                    <input type="text" id="username" name="username" placeholder="Insert your name" className="text-field" />
+        <>
+            <header className="">
+                <div className="bg-black border-b-1 border-white/25 h-22.5 flex items-center justify-between" >
+
+                    <a href="/">
+                        <Burger className="ml-6 text-white cursor-pointer hover:text-d8 active:text-d8/75" />
+                    </a>
+
+                    <a href="/">
+                        <Logo className="text-white hover:text-d8 active:text-d8/75" />
+                    </a>
+
+                    <a href="/">
+                        <Cart className="mr-6 text-white cursor-pointer hover:text-d8 active:text-d8/75" />
+                    </a>
+
                 </div>
-
-                <div className="flex flex-col gap-3">
-
-                    <p>Select an option:</p>
-                    <label
-                        htmlFor="option1"
-                        className="radio-label-field group"
-                    >
-                        <input type="radio" id="option1" name="choice" value="1" className="radio-input-field" />
-                        e-Money
-                    </label>
-
-                    <label
-                        htmlFor="option2"
-                        className="radio-label-field group"
-                    >
-                        <input type="radio" id="option2" name="choice" value="2" className="radio-input-field" />
-                        e-Fart
-                    </label>
-                </div>
-
-                <h3>Quantity</h3>
-                <QuantitySelector></QuantitySelector>
-
-                <button type="submit">Submit</button>
-            </form>
-
-        </div>
+            </header>
+        </>
     )
 
 }
