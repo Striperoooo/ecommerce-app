@@ -7,7 +7,7 @@ export default function Header() {
     return (
         <>
             <header className="">
-                <div className="bg-black border-b-1 border-white/25 h-22.5 flex items-center justify-between mb-4" >
+                <div className="bg-black border-b-1 border-white/25 h-22.5 flex items-center justify-between" >
 
                     <a href="/">
                         <Burger className="ml-6 text-white cursor-pointer hover:text-d8 active:text-d8/75" />
