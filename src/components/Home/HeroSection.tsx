@@ -1,6 +1,6 @@
 import Typography from "../ui/Typography"
 import Button from "../ui/Button"
-import heroImage from "../../assets/home/mobile/image-header.jpg"
+import heroImageDarker from "../../assets/home/mobile/image-header-darker.jpg"
 
 
 export default function HeroSection() {
@@ -8,11 +8,22 @@ export default function HeroSection() {
         <>
 
             <div
-                style={{ backgroundImage: `url(${heroImage})` }}
-                className="min-h-[510px] w-full bg-center bg-cover"
+                className="relative min-h-[510px] w-full"
             >
 
-                <div className="flex flex-col items-center justify-center text-center px-6">
+
+                <div className="absolute inset-0 bg-[#191919] "></div>
+
+                <div
+                    style={{ backgroundImage: `url(${heroImageDarker})` }}
+                    className="absolute inset-0 
+                    bg-[position:50%_105%] bg-cover opacity-[50.21%] "
+                >
+                </div>
+
+
+
+                <div className="relative z-10 flex flex-col items-center justify-center text-center px-6">
 
                     <Typography
                         variant="overline"
@@ -38,7 +49,7 @@ export default function HeroSection() {
 
                     <Button
                         variant="primary"
-                        className="mt-7"
+                        className="mt-7 mb-28"
                     >
                         See Product
                     </Button>
