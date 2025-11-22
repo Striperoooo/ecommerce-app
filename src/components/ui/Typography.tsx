@@ -5,13 +5,14 @@ import type { ElementType } from 'react';
 const variantMap = {
     h1: { tag: 'h1', className: 'font-bold text-[56px] leading-[58px] tracking-[2px] uppercase' },
     h2: { tag: 'h2', className: 'font-bold text-[40px] leading-[44px] tracking-[1.5px] uppercase' },
+    h3Larger: { tag: 'h3', className: 'font-bold text-[36px] leading-[40px] tracking-[1.29px] uppercase' },
     h3: { tag: 'h3', className: 'font-bold text-[32px] leading-[36px] tracking-[1.15px] uppercase' },
     h4: { tag: 'h4', className: 'font-bold text-[28px] leading-[38px] tracking-[2px] uppercase' },
     h5: { tag: 'h5', className: 'font-bold text-[24px] leading-[33px] tracking-[1.7px] uppercase' },
     h6: { tag: 'h6', className: 'font-bold text-[18px] leading-[24px] tracking-[1.3px] uppercase' },
-    overline: { tag: 'span', className: 'font-normal text-[14px] leading-[19px] tracking-[10px] uppercase' },
+    overline: { tag: 'span', className: 'font-normal text-[14px] leading-normal tracking-[10px] uppercase' },
     subtitle: { tag: 'span', className: 'font-bold text-[13px] leading-[25px] tracking-[1px] uppercase' },
-    p: { tag: 'p', className: 'font-medium text-[15px] leading-[25px]tracking-[0px]' },
+    p: { tag: 'p', className: 'font-medium text-[15px] leading-[25px] tracking-[0px]' },
     pBold: { tag: 'p', className: 'font-bold text-[15px] leading-[25px]tracking-[0px]' },
 } as const;
 

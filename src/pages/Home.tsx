@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
+import HeroSection from "../components/Home/HeroSection";
 
 export default function Home() {
     return (
-        <div className="bg-pink-800">
-            <h2 className="text-green-600 font-bold">Home</h2>
-        </div>
+        <>
+            <HeroSection />
+        </>
     )
 }

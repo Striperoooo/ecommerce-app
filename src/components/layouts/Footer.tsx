@@ -1,8 +1,8 @@
-import Logo from "../assets/shared/desktop/logo.svg?react"
-import Facebook from "../assets/shared/desktop/icon-facebook.svg?react"
-import Twitter from "../assets/shared/desktop/icon-twitter.svg?react"
-import Instagram from "../assets/shared/desktop/icon-instagram.svg?react"
-import Typography from "./ui/Typography"
+import Logo from "../../assets/shared/desktop/logo.svg?react"
+import Facebook from "../../assets/shared/desktop/icon-facebook.svg?react"
+import Twitter from "../../assets/shared/desktop/icon-twitter.svg?react"
+import Instagram from "../../assets/shared/desktop/icon-instagram.svg?react"
+import Typography from "../ui/Typography"
 
 
 export default function Footer() {
