@@ -7,7 +7,7 @@ export default function HeroSection() {
     return (
         <>
 
-            <div
+            <section
                 className="relative min-h-[510px] w-full"
             >
 
@@ -57,7 +57,7 @@ export default function HeroSection() {
                 </div>
 
 
-            </div>
+            </section>
         </>
     )
 }
