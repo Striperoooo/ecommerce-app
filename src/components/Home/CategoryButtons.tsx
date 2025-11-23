@@ -5,7 +5,7 @@ import earphone from "../../assets/shared/desktop/image-category-thumbnail-earph
 
 export default function CategoryButtons() {
     return (
-        <section className="mt-23 mb-30">
+        <section className="mt-23">
             <div className="flex flex-col gap-17">
 
                 <CategoryButton name="HEADPHONES" image={headphone} href="/headphones" />
