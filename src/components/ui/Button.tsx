@@ -11,7 +11,7 @@ const variantMap = {
         active: 'active:bg-fba/75',
     },
     secondary: {
-        className: 'bg-white border-2 border-black font-bold text-black text-[13px]  tracking-[1px] px-7.5 py-3.75 uppercase cursor-pointer',
+        className: 'bg-transparent border-2 border-black font-bold text-black text-[13px]  tracking-[1px] px-7.5 py-3.75 uppercase cursor-pointer',
         hover: 'hover:bg-black hover:text-white',
         active: 'active:bg-black-hover',
     },
