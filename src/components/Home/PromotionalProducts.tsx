@@ -1,10 +1,9 @@
-import FeaturedProductYX1 from "./PromotionalProducts/FeaturedProductYX1"
-
+import FeaturedProductZX9 from "./PromotionalProducts/FeaturedProductZX9"
 
 export default function PromotionalProducts() {
     return (
         <section className="mt-30 mb-10">
-            <FeaturedProductYX1 />
+            <FeaturedProductZX9 />
         </section>
 
     )
