@@ -15,6 +15,11 @@ const variantMap = {
         hover: 'hover:bg-black hover:text-white',
         active: 'active:bg-black-hover',
     },
+    secondaryThin: {
+        className: 'bg-transparent border border-black font-bold text-black text-[13px]  tracking-[1px] px-7.5 py-3.75 uppercase cursor-pointer',
+        hover: 'hover:bg-black hover:text-white',
+        active: 'active:bg-black-hover',
+    },
     tertiary: {
         className: 'bg-transparent font-bold text-black/50 text-[13px] px-3 uppercase cursor-pointer after-chevron',
         hover: 'hover:text-d8',
