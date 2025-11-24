@@ -11,12 +11,17 @@ const variantMap = {
         active: 'active:bg-fba/75',
     },
     secondary: {
-        className: 'bg-white border-2 border-black font-bold text-black text-[13px]  tracking-[1px] px-7.5 py-3.75 uppercase cursor-pointer',
+        className: 'bg-transparent border-2 border-black font-bold text-black text-[13px]  tracking-[1px] px-7.5 py-3.75 uppercase cursor-pointer',
+        hover: 'hover:bg-black hover:text-white',
+        active: 'active:bg-black-hover',
+    },
+    secondaryThin: {
+        className: 'bg-transparent border border-black font-bold text-black text-[13px]  tracking-[1px] px-7.5 py-3.75 uppercase cursor-pointer',
         hover: 'hover:bg-black hover:text-white',
         active: 'active:bg-black-hover',
     },
     tertiary: {
-        className: 'bg-transparent font-bold text-black/50 text-brand px-3 py-1 uppercase cursor-pointer after-chevron',
+        className: 'bg-transparent font-bold text-black/50 text-[13px] px-3 uppercase cursor-pointer after-chevron',
         hover: 'hover:text-d8',
         active: 'active:text-orange-active',
     },
@@ -24,10 +29,10 @@ const variantMap = {
 
 type Variant = keyof typeof variantMap;
 
-interface Props {
+interface ButtonProps {
     variant?: Variant; // which button style to use
     className?: string; // extra classes to merge
-    as?: ElementType;
+    href?: string;
     children?: React.ReactNode;
 }
 
@@ -35,10 +40,10 @@ interface Props {
 export default function Button({
     variant = 'primary',
     className = '',
-    as,
+    href,
     children,
     ...props
-}: Props & React.ButtonHTMLAttributes<HTMLButtonElement>) {
+}: ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>) {
 
     const entry = variantMap[variant];
 
@@ -52,13 +57,18 @@ export default function Button({
     const combined = `${baseClass} ${variantClass} ${variantHover} ${variantActive} ${className}`.trim();
 
     // allow overriding the element type (button by default)
-    const Tag = (as || 'button') as ElementType;
+    const Tag = (href ? 'a' : 'button') as ElementType;
+
+    const finalProps = {
+        ...props,
+        ...(href && { href: href }),
+        className: combined,
+    }
 
     return (
-        <Tag className={combined} {...props}>
+        <Tag {...finalProps}>
             {children}
         </Tag>
     );
 }
-
 

@@ -1,6 +1,6 @@
-import Burger from "../assets/shared/tablet/icon-hamburger.svg?react"
-import Logo from "../assets/shared/desktop/logo.svg?react"
-import Cart from "../assets/shared/desktop/icon-cart.svg?react"
+import Burger from "../../assets/shared/tablet/icon-hamburger.svg?react"
+import Logo from "../../assets/shared/desktop/logo.svg?react"
+import Cart from "../../assets/shared/desktop/icon-cart.svg?react"
 
 export default function Header() {
 
