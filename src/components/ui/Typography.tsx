@@ -9,6 +9,7 @@ const variantMap = {
     h3: { tag: 'h3', className: 'font-bold text-[32px] leading-[36px] tracking-[1.15px] uppercase' },
     h4: { tag: 'h4', className: 'font-bold text-[28px] leading-[38px] tracking-[2px] uppercase' },
     h4Other: { tag: 'h4', className: 'font-bold text-[28px] leading-normal tracking-[2px] uppercase' },
+    h4OtherTight: { tag: 'h4', className: 'font-bold text-[28px] leading-normal tracking-[1px] uppercase' },
     h5: { tag: 'h5', className: 'font-bold text-[24px] leading-[33px] tracking-[1.7px] uppercase' },
     h6: { tag: 'h6', className: 'font-bold text-[18px] leading-[24px] tracking-[1.3px] uppercase' },
     overline: { tag: 'span', className: 'font-normal text-[14px] leading-normal tracking-[10px] uppercase' },
