@@ -1,5 +1,6 @@
 import React from 'react';
 import type { ElementType } from 'react';
+import { Link } from 'react-router-dom';
 
 
 const variantMap = {
@@ -32,7 +33,7 @@ type Variant = keyof typeof variantMap;
 interface ButtonProps {
     variant?: Variant; // which button style to use
     className?: string; // extra classes to merge
-    href?: string;
+    to?: string;
     children?: React.ReactNode;
 }
 
@@ -40,7 +41,7 @@ interface ButtonProps {
 export default function Button({
     variant = 'primary',
     className = '',
-    href,
+    to,
     children,
     ...props
 }: ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>) {
@@ -57,11 +58,11 @@ export default function Button({
     const combined = `${baseClass} ${variantClass} ${variantHover} ${variantActive} ${className}`.trim();
 
     // allow overriding the element type (button by default)
-    const Tag = (href ? 'a' : 'button') as ElementType;
+    const Tag = (to ? Link : 'button') as ElementType;
 
     const finalProps = {
         ...props,
-        ...(href && { href: href }),
+        ...(to && { to: to }),
         className: combined,
     }
 
