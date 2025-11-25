@@ -21,6 +21,16 @@ export default function CategoryPage() {
         (product: Product) => product.category === categoryName
     )
 
+    const sortedProducts = filteredProducts.sort((productA, productB) => {
+        if (productB.new && !productA.new) {
+            return 1
+        }
+        if (productA.new && !productB.new) {
+            return -1
+        }
+        return 0
+    })
+
     return (
         <>
             <section className="bg-black text-center py-8" >
@@ -29,8 +39,8 @@ export default function CategoryPage() {
                 </Typography>
             </section>
 
-            <section className="mt-16 px-10 flex flex-col gap-30 items-center justify-center">
-                {filteredProducts.map((product) => (
+            <section className="mt-16 px-6 flex flex-col gap-30 items-center justify-center">
+                {sortedProducts.map((product) => (
                     <CategoryProductCard
                         key={product.id}
                         product={product}

@@ -14,8 +14,6 @@ interface CategoryProductCardProps {
 
 export default function CategoryProductCard({ product }: CategoryProductCardProps) {
 
-    const product4 = data.find(item => item.id === 4)
-
     return (
         <section>
 
