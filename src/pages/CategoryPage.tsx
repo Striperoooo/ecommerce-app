@@ -3,10 +3,11 @@ import CategoryProductCard from "../components/CategoryPage/CategoryProductCard"
 import data from "../../data.json"
 import Typography from "../components/ui/Typography";
 
-interface CategoryPageProps {
+interface Product {
     id: number;
     slug: string;
     name: string;
+    category: string;
     categoryImage: { mobile: string; tablet: string; desktop: string; };
     new: boolean;
     description: string;
@@ -16,6 +17,10 @@ interface CategoryPageProps {
 export default function CategoryPage() {
     const { categoryName } = useParams()
 
+    const filteredProducts: Product[] = data.filter(
+        (product: Product) => product.category === categoryName
+    )
+
     return (
         <>
             <section className="bg-black text-center py-8" >
@@ -24,8 +29,13 @@ export default function CategoryPage() {
                 </Typography>
             </section>
 
-            <section className="mt-16 px-10 flex flex-col items-center justify-center">
-                <CategoryProductCard />
+            <section className="mt-16 px-10 flex flex-col gap-30 items-center justify-center">
+                {filteredProducts.map((product) => (
+                    <CategoryProductCard
+                        key={product.id}
+                        product={product}
+                    />
+                ))}
             </section>
         </>
     )
