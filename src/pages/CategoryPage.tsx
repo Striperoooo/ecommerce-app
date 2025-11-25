@@ -28,7 +28,7 @@ export default function CategoryPage() {
         if (productA.new && !productB.new) {
             return -1
         }
-        return 0
+        return productB.id - productA.id;
     })
 
     return (
