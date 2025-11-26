@@ -35,7 +35,6 @@ export default function CategoryPage() {
 
     return (
         <>
-
             <section className="bg-black text-center py-8" >
                 <Typography variant="h4Other" className="text-white">
                     {categoryName}
@@ -45,16 +44,12 @@ export default function CategoryPage() {
             <div className="container mx-auto px-6">
 
                 <section className="mt-16 flex flex-col gap-30 items-center justify-center">
-
                     {sortedProducts.map((product) => (
                         <CategoryProductCard
                             key={product.id}
                             product={product}
                         />
                     ))}
-
-
-
                 </section>
 
                 <div className="mt-43">
