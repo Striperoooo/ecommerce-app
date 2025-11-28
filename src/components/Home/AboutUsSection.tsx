@@ -7,7 +7,7 @@ export default function AboutUsSection() {
     return (
         <section className="my-30">
             <div>
-                <img src={imageBestGear} alt="Black and white photo of a person modelling a pair of headphones." className="rounded-lg" />
+                <img src={imageBestGear} alt="Black and white photo of a person modelling a pair of headphones." className="rounded-lg mx-auto" />
 
                 <div className="text-center">
                     <Typography variant="h4OtherTight" className="text-black mt-10 mb-8">

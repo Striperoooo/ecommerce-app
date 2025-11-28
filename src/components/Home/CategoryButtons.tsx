@@ -8,9 +8,9 @@ export default function CategoryButtons() {
         <section className="mt-23">
             <div className="flex flex-col gap-17">
 
-                <CategoryButton name="HEADPHONES" image={headphone} href="/headphones" />
-                <CategoryButton name="SPEAKERS" image={speaker} href="/speakers" />
-                <CategoryButton name="EARPHONES" image={earphone} href="/earphones" />
+                <CategoryButton name="HEADPHONES" image={headphone} to="/category/headphones" />
+                <CategoryButton name="SPEAKERS" image={speaker} to="/category/speakers" />
+                <CategoryButton name="EARPHONES" image={earphone} to="/category/earphones" />
 
             </div>
         </section>
