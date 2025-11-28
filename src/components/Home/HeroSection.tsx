@@ -50,6 +50,7 @@ export default function HeroSection() {
                     <Button
                         variant="primary"
                         className="mt-7 mb-28"
+                        to=""
                     >
                         See Product
                     </Button>
