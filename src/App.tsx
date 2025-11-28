@@ -1,8 +1,9 @@
 import { Routes, Route } from "react-router-dom"
+import ScrollToTop from "./hooks/ScrollToTop"
 import Layout from "./Layout"
 import Home from "./pages/Home"
 import CategoryPage from "./pages/CategoryPage"
-import ScrollToTop from "./hooks/ScrollToTop"
+import ProductDetailPage from "./pages/ProductDetailPage"
 
 export default function App() {
   return (
@@ -10,14 +11,25 @@ export default function App() {
       <ScrollToTop />
       <Routes>
 
+
         <Route path="/" element={<Layout />} >
           <Route index element={<Home />} />
 
           <Route path="category">
-            <Route path=":categoryName" element={<CategoryPage />} />
+            <Route
+              path=":categoryName"
+              element={<CategoryPage />}
+            />
           </Route>
 
+          <Route path="product">
+            <Route
+              path=":productName"
+              element={<ProductDetailPage />}
+            />
+          </Route>
         </Route>
+
 
       </Routes>
     </>
