@@ -17,7 +17,7 @@ export default function CategoryProductCard({ product }: CategoryProductCardProp
     return (
         <section>
 
-            <img src={product.categoryImage.mobile} alt={product.name} className="rounded-lg" />
+            <img src={product.categoryImage.mobile} alt={product.name} className="rounded-lg mx-auto" />
 
             <div className="mt-8 flex flex-col gap-6 text-center items-center">
 
