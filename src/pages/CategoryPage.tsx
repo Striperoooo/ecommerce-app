@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import CategoryProductCard from "../components/CategoryPage/CategoryProductCard";
-import data from "../../data.json"
+import data from "../data/data.json"
 import Typography from "../components/ui/Typography";
 import CategoryButtons from "../components/Home/CategoryButtons";
 import AboutUsSection from "../components/Home/AboutUsSection";
