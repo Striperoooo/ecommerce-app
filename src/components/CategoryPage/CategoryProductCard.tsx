@@ -1,4 +1,3 @@
-import data from "../../../data.json"
 import Typography from "../ui/Typography"
 import Button from "../ui/Button"
 
