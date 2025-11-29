@@ -2,25 +2,23 @@ import Typography from "../ui/Typography"
 import Button from "../ui/Button"
 
 interface CategoryProductCardProps {
-    product: {
-        slug: string;
-        name: string;
-        categoryImage: { mobile: string; tablet: string; desktop: string; };
-        new: boolean;
-        description: string;
-    }
+    slug: string;
+    name: string;
+    categoryImage: { mobile: string; tablet: string; desktop: string; };
+    isNew: boolean;
+    description: string;
 }
 
-export default function CategoryProductCard({ product }: CategoryProductCardProps) {
+export default function CategoryProductCard({ slug, name, categoryImage, isNew, description }: CategoryProductCardProps) {
 
     return (
         <section>
 
-            <img src={product.categoryImage.mobile} alt={product.name} className="rounded-lg mx-auto" />
+            <img src={categoryImage.mobile} alt={name} className="rounded-lg mx-auto" />
 
             <div className="mt-8 flex flex-col gap-6 text-center items-center">
 
-                {product.new &&
+                {isNew &&
                     <Typography variant="overline" className="text-d8">
                         NEW PRODUCT
                     </Typography>
@@ -28,14 +26,14 @@ export default function CategoryProductCard({ product }: CategoryProductCardProp
 
 
                 <Typography variant="h4OtherTight" className="text-black">
-                    {product.name}
+                    {name}
                 </Typography>
 
                 <Typography variant="p" className="text-black/50">
-                    {product.description}
+                    {description}
                 </Typography>
 
-                <Button variant="primary" to={`/product/${product.slug}`}>
+                <Button variant="primary" to={`/product/${slug}`}>
                     See Product
                 </Button>
 

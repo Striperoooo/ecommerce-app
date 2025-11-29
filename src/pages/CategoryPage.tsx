@@ -1,20 +1,11 @@
 import { useParams } from "react-router-dom";
-import CategoryProductCard from "../components/CategoryPage/CategoryProductCard";
+import type { Product } from "../types";
 import data from "../data/data.json"
+import CategoryProductCard from "../components/CategoryPage/CategoryProductCard";
 import Typography from "../components/ui/Typography";
 import CategoryButtons from "../components/Home/CategoryButtons";
 import AboutUsSection from "../components/Home/AboutUsSection";
 
-interface Product {
-    id: number;
-    slug: string;
-    name: string;
-    category: string;
-    categoryImage: { mobile: string; tablet: string; desktop: string; };
-    new: boolean;
-    description: string;
-
-}
 
 export default function CategoryPage() {
     const { categoryName } = useParams()
@@ -47,7 +38,11 @@ export default function CategoryPage() {
                     {sortedProducts.map((product) => (
                         <CategoryProductCard
                             key={product.id}
-                            product={product}
+                            slug={product.slug}
+                            name={product.name}
+                            categoryImage={product.categoryImage}
+                            isNew={product.new}
+                            description={product.description}
                         />
                     ))}
                 </section>
