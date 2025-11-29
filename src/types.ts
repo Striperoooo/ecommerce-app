@@ -14,7 +14,7 @@ export interface Product {
     others: ProductOther[];
 }
 
-interface ImageSet {
+export interface ImageSet {
     mobile: string;
     tablet: string;
     desktop: string;
