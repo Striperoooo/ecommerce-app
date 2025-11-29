@@ -24,7 +24,7 @@ export default function App() {
 
           <Route path="product">
             <Route
-              path=":productName"
+              path=":productSlug"
               element={<ProductDetailPage />}
             />
           </Route>
