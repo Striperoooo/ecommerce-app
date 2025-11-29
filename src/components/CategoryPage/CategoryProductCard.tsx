@@ -1,15 +1,20 @@
+import type { ImageSet } from "../../types";
 import Typography from "../ui/Typography"
 import Button from "../ui/Button"
 
 interface CategoryProductCardProps {
     slug: string;
     name: string;
-    categoryImage: { mobile: string; tablet: string; desktop: string; };
+    categoryImage: ImageSet;
     isNew: boolean;
     description: string;
 }
 
-export default function CategoryProductCard({ slug, name, categoryImage, isNew, description }: CategoryProductCardProps) {
+export default function CategoryProductCard({ slug,
+    name,
+    categoryImage,
+    isNew,
+    description }: CategoryProductCardProps) {
 
     return (
         <section>

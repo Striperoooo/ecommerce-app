@@ -8,7 +8,7 @@ import AboutUsSection from "../components/Home/AboutUsSection";
 
 
 export default function CategoryPage() {
-    const { categoryName } = useParams()
+    const { categoryName } = useParams<{ categoryName: string }>()
 
     const filteredProducts: Product[] = data.filter(
         (product: Product) => product.category === categoryName
