@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom"
 import type { Product } from "../types";
 import data from "../data/data.json"
 import DetailCard from "../components/ProductDetailPage/DetailCard";
+import FeaturesSection from "../components/ProductDetailPage/FeaturesSection";
 
 export default function ProductDetailPage() {
     const { productSlug } = useParams<{ productSlug: string }>()
@@ -24,6 +25,8 @@ export default function ProductDetailPage() {
         new: isNew,
         price,
         description,
+        features,
+        includes,
     } = currentProduct
 
     return (
@@ -34,6 +37,13 @@ export default function ProductDetailPage() {
                 isNew={isNew}
                 price={price}
                 description={description}
+            />
+
+            <h1 className="font-bold">ADD TO CART GOES HERE</h1>
+
+            <FeaturesSection
+                features={features}
+                includes={includes}
             />
         </section>
     )
