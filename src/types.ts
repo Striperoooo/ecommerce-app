@@ -20,7 +20,7 @@ export interface ImageSet {
     desktop: string;
 }
 
-interface ProductIncludes {
+export interface ProductIncludes {
     quantity: number;
     item: string;
 }
