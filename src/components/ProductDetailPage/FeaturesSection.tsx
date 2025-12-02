@@ -18,7 +18,7 @@ export default function FeaturesSection({
                     Features
                 </Typography>
 
-                <Typography variant="p" className="mt-6 text-black/50">
+                <Typography variant="p" className="mt-6 text-black/50 whitespace-pre-line">
                     {features}
                 </Typography>
             </section>

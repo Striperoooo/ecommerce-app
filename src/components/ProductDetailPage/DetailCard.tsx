@@ -18,6 +18,8 @@ export default function DetailCard({
     description
 }: DetailCardProps) {
 
+    const formattedPrice = new Intl.NumberFormat('en-US').format(price);
+
     return (
         <section className="mt-6  flex justify-center">
             <div className="flex flex-col gap-6  ">
@@ -38,7 +40,7 @@ export default function DetailCard({
                 </Typography>
 
                 <Typography variant="h6Other" className="text-black">
-                    $ {price}
+                    $ {formattedPrice}
                 </Typography>
 
             </div>
