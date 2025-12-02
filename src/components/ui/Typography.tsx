@@ -11,13 +11,14 @@ const variantMap = {
     h4Other: { tag: 'h4', className: 'font-bold text-[28px] leading-normal tracking-[2px] uppercase' },
     h4OtherTight: { tag: 'h4', className: 'font-bold text-[28px] leading-normal tracking-[1px] uppercase' },
     h5: { tag: 'h5', className: 'font-bold text-[24px] leading-[33px] tracking-[1.7px] uppercase' },
+    h5Other: { tag: 'h5', className: 'font-bold text-[24px] leading-[36px] tracking-[0.86px] uppercase' },
     h6: { tag: 'h6', className: 'font-bold text-[18px] leading-[24px] tracking-[1.3px] uppercase' },
     h6Other: { tag: 'h6', className: 'font-bold text-[18px] leading-normal tracking-[1.29px] uppercase' },
     overline: { tag: 'span', className: 'font-normal text-[14px] leading-normal tracking-[10px] uppercase' },
     subtitle: { tag: 'span', className: 'font-bold text-[13px] leading-[25px] tracking-[1px] uppercase' },
     title: { tag: 'p', className: 'font-bold text-[15px] leading-auto tracking-[1.07px] uppercase' },
     p: { tag: 'p', className: 'font-medium text-[15px] leading-[25px] tracking-[0px]' },
-    pBold: { tag: 'p', className: 'font-bold text-[15px] leading-[25px]tracking-[0px]' },
+    pBold: { tag: 'p', className: 'font-bold text-[15px] leading-[25px] tracking-[0px]' },
 } as const;
 
 type Variant = keyof typeof variantMap; // 'h1' | 'h2' | ... inferred from the map
