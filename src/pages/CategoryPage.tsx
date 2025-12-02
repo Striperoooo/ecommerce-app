@@ -6,7 +6,6 @@ import Typography from "../components/ui/Typography";
 import CategoryButtons from "../components/Home/CategoryButtons";
 import AboutUsSection from "../components/Home/AboutUsSection";
 
-
 export default function CategoryPage() {
     const { categoryName } = useParams<{ categoryName: string }>()
 

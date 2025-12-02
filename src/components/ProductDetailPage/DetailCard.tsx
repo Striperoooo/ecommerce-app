@@ -7,7 +7,7 @@ interface DetailCardProps {
     image: ImageSet;
     isNew: boolean;
     price: number;
-    description: string
+    description: string;
 }
 
 export default function DetailCard({
