@@ -3,6 +3,7 @@ import type { Product } from "../types";
 import data from "../data/data.json"
 import DetailCard from "../components/ProductDetailPage/DetailCard";
 import FeaturesSection from "../components/ProductDetailPage/FeaturesSection";
+import GallerySection from "../components/ProductDetailPage/GallerySection";
 
 export default function ProductDetailPage() {
     const { productSlug } = useParams<{ productSlug: string }>()
@@ -27,7 +28,9 @@ export default function ProductDetailPage() {
         description,
         features,
         includes,
+        gallery
     } = currentProduct
+
 
     return (
         <section className="px-6">
@@ -44,6 +47,11 @@ export default function ProductDetailPage() {
             <FeaturesSection
                 features={features}
                 includes={includes}
+            />
+
+            <GallerySection
+                gallery={gallery}
+                name={name}
             />
         </section>
     )

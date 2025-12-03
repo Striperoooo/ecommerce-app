@@ -30,7 +30,10 @@ export default function FeaturesSection({
 
                 <div className="mt-6 flex flex-col gap-2">
                     {includes.map((included) => (
-                        <div className="flex gap-6">
+                        <div
+                            key={included.item}
+                            className="flex gap-6"
+                        >
                             <Typography variant="pBold" className="text-d8 w-[18px] h-[25px]">
                                 {included.quantity}x
                             </Typography>
