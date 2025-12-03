@@ -25,13 +25,13 @@ export interface ProductIncludes {
     item: string;
 }
 
-interface GalleryImages {
+export interface GalleryImages {
     first: ImageSet;
     second: ImageSet;
     third: ImageSet;
 }
 
-interface ProductOther {
+export interface ProductOther {
     slug: string;
     name: string;
     image: ImageSet;
