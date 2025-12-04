@@ -7,6 +7,7 @@ import GallerySection from "../components/ProductDetailPage/GallerySection";
 import OthersSection from "../components/ProductDetailPage/OthersSection";
 import CategoryButtons from "../components/Home/CategoryButtons";
 import AboutUsSection from "../components/Home/AboutUsSection";
+import AddToCartControls from "../components/ProductDetailPage/AddToCartControls";
 
 export default function ProductDetailPage() {
     const { productSlug } = useParams<{ productSlug: string }>()
@@ -24,6 +25,7 @@ export default function ProductDetailPage() {
     }
 
     const {
+        id,
         name,
         image,
         new: isNew,
@@ -46,7 +48,12 @@ export default function ProductDetailPage() {
                 description={description}
             />
 
-            <h1 className="font-bold">ADD TO CART GOES HERE</h1>
+            <AddToCartControls
+                id={id}
+                name={name}
+                image={image}
+                price={price}
+            />
 
             <FeaturesSection
                 features={features}
