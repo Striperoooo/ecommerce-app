@@ -4,6 +4,9 @@ import data from "../data/data.json"
 import DetailCard from "../components/ProductDetailPage/DetailCard";
 import FeaturesSection from "../components/ProductDetailPage/FeaturesSection";
 import GallerySection from "../components/ProductDetailPage/GallerySection";
+import OthersSection from "../components/ProductDetailPage/OthersSection";
+import CategoryButtons from "../components/Home/CategoryButtons";
+import AboutUsSection from "../components/Home/AboutUsSection";
 
 export default function ProductDetailPage() {
     const { productSlug } = useParams<{ productSlug: string }>()
@@ -28,7 +31,8 @@ export default function ProductDetailPage() {
         description,
         features,
         includes,
-        gallery
+        gallery,
+        others
     } = currentProduct
 
 
@@ -53,6 +57,17 @@ export default function ProductDetailPage() {
                 gallery={gallery}
                 name={name}
             />
+
+            <OthersSection
+                others={others}
+            />
+
+            <div className="mt-43">
+                <CategoryButtons />
+            </div>
+
+            <AboutUsSection />
+
         </section>
     )
 }
