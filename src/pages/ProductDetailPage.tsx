@@ -27,6 +27,7 @@ export default function ProductDetailPage() {
     const {
         id,
         name,
+        cartName,
         image,
         new: isNew,
         price,
@@ -51,6 +52,7 @@ export default function ProductDetailPage() {
             <AddToCartControls
                 id={id}
                 name={name}
+                cartName={cartName}
                 image={image}
                 price={price}
             />
