@@ -2,6 +2,7 @@ export interface Product {
     id: number;
     slug: string;
     name: string;
+    cartName: string;
     image: ImageSet;
     category: string;
     categoryImage: ImageSet;
