@@ -39,7 +39,7 @@ export default function CheckoutForm() {
     }
 
     return (
-        <section className="bg-white p-6 rounded-lg">
+        <section className="bg-white px-6 py-8 rounded-lg">
             <form onSubmit={handleSubmit} className="flex flex-col gap-8">
                 <Typography
                     variant="h4OtherTight"
