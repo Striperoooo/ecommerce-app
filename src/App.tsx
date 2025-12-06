@@ -4,14 +4,14 @@ import Layout from "./Layout"
 import Home from "./pages/Home"
 import CategoryPage from "./pages/CategoryPage"
 import ProductDetailPage from "./pages/ProductDetailPage"
+import CheckoutPage from "./pages/CheckoutPage"
 
 export default function App() {
   return (
     <>
       <ScrollToTop />
+
       <Routes>
-
-
         <Route path="/" element={<Layout />} >
           <Route index element={<Home />} />
 
@@ -28,8 +28,10 @@ export default function App() {
               element={<ProductDetailPage />}
             />
           </Route>
-        </Route>
 
+          <Route path="checkout" element={<CheckoutPage />} />
+
+        </Route>
 
       </Routes>
     </>
