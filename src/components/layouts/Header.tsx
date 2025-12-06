@@ -24,7 +24,7 @@ export default function Header() {
 
     return (
         <>
-            <header className="sticky top-0 z-10">
+            <header className="sticky top-0 z-20">
                 <div className="bg-black border-b-1 border-white/25 h-22.5 flex items-center justify-between" >
 
                     <Link to="/">
