@@ -48,32 +48,30 @@ export default function CartModal({ onClose }: CartModalProps) {
                     : (
                         <>
                             {cart.map(item => (
-                                <>
-                                    <div key={item.id} className="flex items-center mb-4 justify-between gap-4.75">
-                                        <div className="flex items-center gap-4">
-                                            <img
-                                                src={item.image.mobile}
-                                                alt={name}
-                                                className="w-[64px] h-[64px] rounded-lg"
-                                            />
-
-                                            <div className="flex flex-col justify-between">
-                                                <Typography variant="pBold" className="text-black">
-                                                    {item.cartName}
-                                                </Typography>
-
-                                                <Typography variant="overlineBold" className="text-black/50">
-                                                    $ {new Intl.NumberFormat('en-US').format(item.price)}
-                                                </Typography>
-                                            </div>
-                                        </div>
-
-                                        <CartItemUpdateControls
-                                            id={item.id}
-                                            quantity={item.quantity}
+                                <div key={item.id} className="flex items-center mb-4 justify-between gap-4.75">
+                                    <div className="flex items-center gap-4">
+                                        <img
+                                            src={item.image.mobile}
+                                            alt={name}
+                                            className="w-[64px] h-[64px] rounded-lg"
                                         />
+
+                                        <div className="flex flex-col justify-between">
+                                            <Typography variant="pBold" className="text-black">
+                                                {item.cartName}
+                                            </Typography>
+
+                                            <Typography variant="overlineBold" className="text-black/50">
+                                                $ {new Intl.NumberFormat('en-US').format(item.price)}
+                                            </Typography>
+                                        </div>
                                     </div>
-                                </>
+
+                                    <CartItemUpdateControls
+                                        id={item.id}
+                                        quantity={item.quantity}
+                                    />
+                                </div>
                             ))}
 
                             <div className="flex justify-between items-center mt-8">
