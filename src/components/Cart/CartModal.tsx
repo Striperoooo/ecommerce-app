@@ -1,7 +1,6 @@
 import { useCart } from "../../hooks/useCartHook";
 import Typography from "../ui/Typography";
 import Button from "../ui/Button";
-import type { CartItem } from "../../context/CartContext";
 import CartItemUpdateControls from "./CartItemUpdateControls";
 
 interface CartModalProps {
@@ -42,8 +41,9 @@ export default function CartModal({ onClose }: CartModalProps) {
                 </div>
 
                 {cart.length === 0
-                    ? (<p className="text-center text-black/50">
-                        Your cart is empty.</p>
+                    ? (<Typography variant="p" className="text-center text-black/50">
+                        Your cart is empty.
+                    </Typography>
                     )
                     : (
                         <>
@@ -90,7 +90,14 @@ export default function CartModal({ onClose }: CartModalProps) {
                                 </Typography>
                             </div>
 
-                            <Button variant="primary" to="/checkout" className="mt-6 w-full">Checkout</Button>
+                            <Button
+                                variant="primary"
+                                to="/checkout"
+                                className="mt-6 w-full"
+                                onClick={onClose}
+                            >
+                                Checkout
+                            </Button>
                         </>
                     )}
             </div>
