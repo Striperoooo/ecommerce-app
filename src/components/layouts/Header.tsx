@@ -18,6 +18,10 @@ export default function Header() {
         setIsCartOpen(!isCartOpen)
     }
 
+    const handleOnClose = () => {
+        setIsCartOpen(false)
+    }
+
     return (
         <>
             <header className="sticky top-0 z-10">
@@ -52,7 +56,7 @@ export default function Header() {
                 </div>
             </header>
 
-            {isCartOpen && <CartModal onClose={() => setIsCartOpen(false)} />}
+            {isCartOpen && <CartModal onClose={handleOnClose} />}
         </>
     )
 
