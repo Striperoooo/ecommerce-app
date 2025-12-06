@@ -2,7 +2,7 @@ import { useCart } from "../../hooks/useCartHook";
 import Typography from "../ui/Typography";
 import Button from "../ui/Button";
 import type { CartItem } from "../../context/CartContext";
-import QuantitySelector from "../ui/QuantitySelector";
+import CartItemUpdateControls from "./CartItemUpdateControls";
 
 interface CartModalProps {
     onClose: () => void;
@@ -10,10 +10,14 @@ interface CartModalProps {
 
 export default function CartModal({ onClose }: CartModalProps) {
 
-    const { cart } = useCart()
+    const { cart, clearCart } = useCart()
 
     const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0)
     const formattedTotal = new Intl.NumberFormat('en-US').format(total)
+
+    const handleRemoveAll = () => {
+        clearCart()
+    }
 
     return (
         <div className="fixed inset-0 bg-black/40 z-20" onClick={onClose}>
@@ -27,8 +31,11 @@ export default function CartModal({ onClose }: CartModalProps) {
                         CART ({cart.length})
                     </Typography>
 
-                    {/* Add clear cart button here later */}
-                    <button className="font-medium text-black/50 text-[15px] leading-[25px] tracking-[0px] cursor-pointer hover:underline active:text-black/38">
+
+                    <button
+                        className="font-medium text-black/50 text-[15px] leading-[25px] tracking-[0px] cursor-pointer hover:underline active:text-black/38"
+                        onClick={handleRemoveAll}
+                    >
                         Remove all
                     </button>
 
@@ -42,7 +49,7 @@ export default function CartModal({ onClose }: CartModalProps) {
                         <>
                             {cart.map(item => (
                                 <>
-                                    <div key={item.id} className="flex items-center mb-4 justify-between">
+                                    <div key={item.id} className="flex items-center mb-4 justify-between gap-4.75">
                                         <div className="flex items-center gap-4">
                                             <img
                                                 src={item.image.mobile}
@@ -61,9 +68,10 @@ export default function CartModal({ onClose }: CartModalProps) {
                                             </div>
                                         </div>
 
-                                        <span className="text-sm text-gray-500">
-                                            x{item.quantity}
-                                        </span>
+                                        <CartItemUpdateControls
+                                            id={item.id}
+                                            quantity={item.quantity}
+                                        />
                                     </div>
                                 </>
                             ))}
@@ -85,7 +93,6 @@ export default function CartModal({ onClose }: CartModalProps) {
                             <Button variant="primary" to="/checkout" className="mt-6 w-full">Checkout</Button>
                         </>
                     )}
-                <QuantitySelector />
             </div>
         </div>
     )

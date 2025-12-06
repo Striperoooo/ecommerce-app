@@ -8,8 +8,22 @@ import OthersSection from "../components/ProductDetailPage/OthersSection";
 import CategoryButtons from "../components/Home/CategoryButtons";
 import AboutUsSection from "../components/Home/AboutUsSection";
 import AddToCartControls from "../components/ProductDetailPage/AddToCartControls";
+import CartNotificationToast from "../components/Cart/CartNotificationToast";
+import { useState } from "react";
 
 export default function ProductDetailPage() {
+
+    const [notficationMessage, setNotificationMessage] = useState<string | null>(null)
+
+    const showNotification = (productName: string) => {
+        setNotificationMessage(`${productName} added to cart!`)
+    }
+
+    const closeNotification = () => {
+        setNotificationMessage(null)
+    }
+
+
     const { productSlug } = useParams<{ productSlug: string }>()
 
     const currentProduct: Product | undefined = data.find(
@@ -55,7 +69,15 @@ export default function ProductDetailPage() {
                 cartName={cartName}
                 image={image}
                 price={price}
+                onAddtoCartSuccess={showNotification}
             />
+
+            {notficationMessage && (
+                <CartNotificationToast
+                    message={notficationMessage}
+                    onClose={closeNotification}
+                />
+            )}
 
             <FeaturesSection
                 features={features}
