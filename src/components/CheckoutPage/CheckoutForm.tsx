@@ -2,7 +2,7 @@ import { useState } from "react";
 import Typography from "../ui/Typography";
 import InputField from "../ui/InputField";
 
-interface FormData {
+export interface FormData {
     name: string;
     email: string;
     phone: string;
@@ -15,7 +15,11 @@ interface FormData {
     eMoneyPin: string;
 }
 
-export default function CheckoutForm() {
+interface CheckoutFormProps {
+    onSubmit: (formData: FormData) => void
+}
+
+export default function CheckoutForm({ onSubmit }: CheckoutFormProps) {
     const [formData, setFormData] = useState<FormData>({
         name: '', email: '', phone: '', address: '', zip: '', city: '', country: '',
         paymentMethod: 'eMoney',
@@ -29,18 +33,21 @@ export default function CheckoutForm() {
     }
 
     const handlePaymentChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setFormData(prevData => ({ ...prevData, paymentMethod: e.target.value as 'eMoney' | 'cashOnDelivery' }));
+        setFormData(prevData => ({ ...prevData, paymentMethod: e.target.value as 'eMoney' | 'cashOnDelivery' }))
     }
 
     const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        console.log('Form submitted:', formData);
-        // Integrate navigation to final confirmation page here.
+        e.preventDefault()
+        onSubmit(formData)
     }
 
     return (
         <section className="bg-white px-6 py-8 rounded-lg">
-            <form onSubmit={handleSubmit} className="flex flex-col gap-8">
+            <form
+                onSubmit={handleSubmit}
+                className="flex flex-col gap-8"
+                id="checkout-form"
+            >
                 <Typography
                     variant="h4OtherTight"
                     className="text-black"
