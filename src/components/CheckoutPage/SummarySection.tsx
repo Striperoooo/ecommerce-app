@@ -23,7 +23,7 @@ export default function SummarySection() {
 
 
     return (
-        <section className="bg-white px-6 py-8 rounded-lg ">
+        <section className="">
 
             <div className="flex justify-between items-center mb-6">
 
@@ -40,34 +40,32 @@ export default function SummarySection() {
                 : (
                     <>
                         {cart.map(item => (
-                            <>
-                                <div key={item.id} className="flex items-center mb-4 justify-between gap-4.75">
-                                    <div className="flex items-center gap-4">
-                                        <img
-                                            src={item.image.mobile}
-                                            alt={name}
-                                            className="w-[64px] h-[64px] rounded-lg"
-                                        />
+                            <div key={item.id} className="flex items-center mb-4 justify-between gap-4.75">
+                                <div className="flex items-center gap-4">
+                                    <img
+                                        src={item.image.mobile}
+                                        alt={name}
+                                        className="w-[64px] h-[64px] rounded-lg"
+                                    />
 
-                                        <div className="flex flex-col justify-between">
-                                            <Typography variant="pBold" className="text-black">
-                                                {item.cartName}
-                                            </Typography>
+                                    <div className="flex flex-col justify-between">
+                                        <Typography variant="pBold" className="text-black">
+                                            {item.cartName}
+                                        </Typography>
 
-                                            <Typography variant="overlineBold" className="text-black/50">
-                                                $ {formatNumber(item.price)}
-                                            </Typography>
-                                        </div>
+                                        <Typography variant="overlineBold" className="text-black/50">
+                                            $ {formatNumber(item.price)}
+                                        </Typography>
                                     </div>
-
-                                    <Typography
-                                        variant="pBold"
-                                        className="text-black/50"
-                                    >
-                                        x{item.quantity}
-                                    </Typography>
                                 </div>
-                            </>
+
+                                <Typography
+                                    variant="pBold"
+                                    className="text-black/50"
+                                >
+                                    x{item.quantity}
+                                </Typography>
+                            </div>
                         ))}
 
                         <div className="mt-8">
