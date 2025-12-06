@@ -1,55 +1,55 @@
 import React, { useState } from 'react'
 
-type Props = {
-    initial?: number
-    min?: number
-    max?: number
-    onChange?: (n: number) => void
-    className?: string
+type QuantitySelectorProps = {
+    quantity: number
+    onIncrement: () => void;
+    onDecrement: () => void;
+    small?: boolean;
 }
 
 export default function QuantitySelector({
-    initial = 1,
-    min,
-    max,
-    onChange,
-    className = '',
-}: Props) {
+    quantity,
+    onIncrement,
+    onDecrement,
+    small
+}: QuantitySelectorProps) {
 
-    const [quantity, setQuantity] = useState<number>(initial)
+    const containerClass =
+        small
+            ? "min-w-[96px] min-h-[32px]"
+            : "min-w-[120px] min-h-[48px]"
 
-    const MIN_QUANTITY = 0
+    const buttonClass =
+        small
+            ? "px-[0.719em]"
+            : "px-3.75"
 
-    const decrease = () => {
-        setQuantity((prev) => Math.max(MIN_QUANTITY, prev - 1));
-    }
-
-    const increase = () => {
-        setQuantity((prev) => prev + 1);
-
-    }
+    const quantityClass =
+        small
+            ? "px-[0.719em]"
+            : "px-3.75 "
 
     return (
         <div
-            className={`inline-flex items-stretch justify-stretch min-w-[120px] h-12 ${className}`}
+            className={`flex items-center bg-f1f1 ${containerClass}`}
         >
 
             <button
                 type="button"
-                onClick={decrease}
-                className="bg-f1f1 w-9 h-full text-black/25 text-[0.813rem] flex items-center justify-center cursor-pointer hover:text-d8 active:text-d8/75 transition"
+                onClick={onDecrement}
+                className={`${buttonClass} text-black/50 hover:text-d8 active:text-orange-active cursor-pointer`}
             >
                 −
             </button>
 
-            <div className="bg-f1f1 text-black text-[0.813rem] tracking-[1px] min-w-8 h-full grow flex items-center justify-center font-medium">
+            <div className={`${quantityClass} font-bold text-sm`}>
                 {quantity}
             </div>
 
             <button
                 type="button"
-                onClick={increase}
-                className="bg-f1f1 w-9 h-full text-black/25 text-[0.813rem] flex items-center justify-center cursor-pointer hover:text-d8 active:text-d8/75 transition"
+                onClick={onIncrement}
+                className={`${buttonClass} text-black/50 hover:text-d8 active:text-orange-active cursor-pointer`}
             >
                 +
             </button>
