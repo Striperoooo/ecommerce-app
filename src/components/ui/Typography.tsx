@@ -18,6 +18,7 @@ const variantMap = {
     h6OtherTight: { tag: 'h6', className: 'font-bold text-[18px] leading-normal tracking-[0px] uppercase' },
     overline: { tag: 'span', className: 'font-normal text-[14px] leading-normal tracking-[10px] uppercase' },
     overlineBold: { tag: 'span', className: 'font-bold text-[14px] leading-[25px] tracking-[0px] uppercase' },
+    overlineBoldTight: { tag: 'span', className: 'font-bold text-[14px] leading-normal tracking-[-0.25px]' },
     subtitle: { tag: 'span', className: 'font-bold text-[13px] leading-[25px] tracking-[1px] uppercase' },
     title: { tag: 'p', className: 'font-bold text-[15px] leading-auto tracking-[1.07px] uppercase' },
     p: { tag: 'p', className: 'font-medium text-[15px] leading-[25px] tracking-[0px]' },
