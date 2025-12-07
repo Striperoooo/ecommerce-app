@@ -14,7 +14,5 @@ export default function CategoryButtons() {
 
             </div>
         </section>
-
-
     )
 }

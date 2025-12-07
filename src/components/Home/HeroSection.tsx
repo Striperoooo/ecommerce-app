@@ -50,6 +50,7 @@ export default function HeroSection() {
                     <Button
                         variant="primary"
                         className="mt-7 mb-28"
+                        to="/product/xx99-mark-two-headphones"
                     >
                         See Product
                     </Button>

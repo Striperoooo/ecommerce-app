@@ -19,7 +19,7 @@ export default function Footer() {
                 </Link>
 
                 <div className="flex flex-col items-center gap-4 ">
-                    <Link to="">
+                    <Link to="/">
                         <Typography
                             variant="subtitle"
                             className="text-white tracking-[2px] hover:text-d8 active:text-d8/75"
@@ -28,7 +28,7 @@ export default function Footer() {
                         </Typography>
                     </Link>
 
-                    <Link to="">
+                    <Link to="/category/headphones">
                         <Typography
                             variant="subtitle"
                             className="text-white tracking-[2px] hover:text-d8 active:text-d8/75"
@@ -37,7 +37,7 @@ export default function Footer() {
                         </Typography>
                     </Link>
 
-                    <Link to="">
+                    <Link to="/category/speakers">
                         <Typography
                             variant="subtitle"
                             className="text-white tracking-[2px] hover:text-d8 active:text-d8/75"
@@ -46,7 +46,7 @@ export default function Footer() {
                         </Typography>
                     </Link>
 
-                    <Link to="">
+                    <Link to="/category/earphones">
                         <Typography
                             variant="subtitle"
                             className="text-white tracking-[2px] hover:text-d8 active:text-d8/75"
