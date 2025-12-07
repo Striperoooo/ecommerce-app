@@ -15,7 +15,11 @@ export default function FeaturedProductZX7() {
                     ZX7 SPEAKER
                 </Typography>
 
-                <Button variant="secondary" className="mt-7">
+                <Button
+                    variant="secondary"
+                    className="mt-7"
+                    to="/product/zx7-speaker"
+                >
                     See Product
                 </Button>
             </div>

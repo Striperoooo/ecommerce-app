@@ -25,7 +25,11 @@ export default function FeaturedProductZX9() {
                     Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.
                 </Typography>
 
-                <Button variant="secondary" className="mt-6">
+                <Button
+                    variant="secondary"
+                    className="mt-6"
+                    to="/product/zx9-speaker"
+                >
                     See Product
                 </Button>
 

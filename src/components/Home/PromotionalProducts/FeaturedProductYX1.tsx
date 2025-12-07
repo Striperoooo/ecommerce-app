@@ -19,7 +19,11 @@ export default function FeaturedProductYX1() {
                     YX1 EARPHONES
                 </Typography>
 
-                <Button variant="secondary" className="mt-7">
+                <Button
+                    variant="secondary"
+                    className="mt-7"
+                    to="/product/yx1-earphones"
+                >
                     See Product
                 </Button>
 
