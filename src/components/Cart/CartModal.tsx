@@ -26,7 +26,10 @@ export default function CartModal({ onClose }: CartModalProps) {
                 onClick={e => e.stopPropagation()}
             >
                 <div className="flex justify-between items-center mb-6">
-                    <Typography variant="h6Other" className="text-black">
+                    <Typography
+                        variant="h6Other"
+                        className="text-black"
+                    >
                         CART ({cart.length})
                     </Typography>
 
