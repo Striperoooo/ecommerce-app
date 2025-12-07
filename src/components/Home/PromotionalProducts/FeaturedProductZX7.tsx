@@ -1,13 +1,23 @@
 import Typography from "../../ui/Typography"
 import Button from "../../ui/Button"
-import imageSpeakerZX7 from "../../../assets/home/mobile/image-speaker-zx7.jpg"
+import imageSpeakerZX7Mobile from "../../../assets/home/mobile/image-speaker-zx7.jpg"
+import imageSpeakerZX7Tablet from "../../../assets/home/tablet/image-speaker-zx7.jpg"
 
 
 export default function FeaturedProductZX7() {
     return (
         <div
-            style={{ backgroundImage: `url(${imageSpeakerZX7})` }}
-            className="w-full h-[320px] bg-cover bg-center rounded-lg px-6 py-25"
+            style={{
+                '--mobile-image': `url(${imageSpeakerZX7Mobile})`,
+                '--tablet-image': `url(${imageSpeakerZX7Tablet})`,
+            } as React.CSSProperties}
+
+            className="w-full h-[320px] bg-cover bg-center rounded-lg px-6 py-25
+
+            bg-[image:var(--mobile-image)]
+            
+            md:bg-[image:var(--tablet-image)]
+            md:px-15.5"
         >
 
             <div className="">
