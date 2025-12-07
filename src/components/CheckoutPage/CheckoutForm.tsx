@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Typography from "../ui/Typography";
 import InputField from "../ui/InputField";
+
+type FormErrors = Partial<Record<keyof FormData, boolean>>
 
 export interface FormData {
     name: string;
@@ -25,10 +27,26 @@ export default function CheckoutForm({ onSubmit }: CheckoutFormProps) {
         paymentMethod: 'eMoney',
         eMoneyNumber: '', eMoneyPin: '',
     })
+    const [errors, setErrors] = useState<FormErrors>({})
+
+    // --- Create refs for key inputs to focus them on error ---
+    const nameRef = useRef<HTMLInputElement>(null);
+    const emailRef = useRef<HTMLInputElement>(null);
+    const phoneRef = useRef<HTMLInputElement>(null);
+
+    const addressRef = useRef<HTMLInputElement>(null);
+    const zipRef = useRef<HTMLInputElement>(null);
+    const cityRef = useRef<HTMLInputElement>(null);
+    const countryRef = useRef<HTMLInputElement>(null);
+
+    const eMoneyNumberRef = useRef<HTMLInputElement>(null);
+    const eMoneyPinRef = useRef<HTMLInputElement>(null);
+
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target
+        setErrors(prev => ({ ...prev, [e.target.name]: false }))
 
+        const { name, value } = e.target
         setFormData(prevData => ({ ...prevData, [name]: value }))
     }
 
@@ -36,9 +54,73 @@ export default function CheckoutForm({ onSubmit }: CheckoutFormProps) {
         setFormData(prevData => ({ ...prevData, paymentMethod: e.target.value as 'eMoney' | 'cashOnDelivery' }))
     }
 
+    const validateForm = (data: FormData): boolean => {
+        const newErrors: FormErrors = {}
+        let isValid = true
+
+        if (!data.name.trim()) newErrors.name = true
+        if (!data.address.trim()) newErrors.address = true
+        if (!data.city.trim()) newErrors.city = true
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(data.email)) {
+            newErrors.email = true
+        }
+
+        if (!data.phone.trim()) newErrors.phone = true;
+
+        if (data.paymentMethod === 'eMoney') {
+            if (!data.eMoneyNumber.trim()) newErrors.eMoneyNumber = true;
+            if (!data.eMoneyPin.trim()) newErrors.eMoneyPin = true
+        }
+
+        setErrors(newErrors)
+        isValid = Object.keys(newErrors).length === 0
+
+        if (!isValid) {
+            if (newErrors.name && nameRef.current) {
+                nameRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' })
+                nameRef.current.focus()
+            } else if (newErrors.email && emailRef.current) {
+                emailRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' })
+                emailRef.current.focus()
+            } else if (newErrors.phone && phoneRef.current) {
+                phoneRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' })
+                phoneRef.current.focus()
+            }
+            else if (newErrors.address && addressRef.current) {
+                addressRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' })
+                addressRef.current.focus()
+            } else if (newErrors.zip && zipRef.current) {
+                zipRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' })
+                zipRef.current.focus()
+            } else if (newErrors.city && cityRef.current) {
+                cityRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' })
+                cityRef.current.focus()
+            } else if (newErrors.country && countryRef.current) {
+                countryRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' })
+                countryRef.current.focus()
+            } else if (newErrors.eMoneyNumber && eMoneyNumberRef.current) {
+                eMoneyNumberRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' })
+                eMoneyNumberRef.current.focus()
+            } else if (newErrors.eMoneyPin && eMoneyPinRef.current) {
+                eMoneyPinRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' })
+                eMoneyPinRef.current.focus()
+            }
+            // Add other conditions for other refs if needed
+        }
+
+        return isValid;
+    };
+
     const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault()
-        onSubmit(formData)
+        e.preventDefault();
+
+        if (validateForm(formData)) {
+            onSubmit(formData); // Only submit if the form is valid
+        } else {
+            console.log("Form validation failed.");
+        }
     }
 
     return (
@@ -65,11 +147,11 @@ export default function CheckoutForm({ onSubmit }: CheckoutFormProps) {
                     </Typography>
 
                     <div className="mt-4 flex flex-col gap-4">
-                        <InputField label="Name" id="name" name="name" type="text" value={formData.name} placeholder="Alexei Ward" onChange={handleChange} />
+                        <InputField label="Name" id="name" name="name" type="text" value={formData.name} placeholder="Alexei Ward" onChange={handleChange} required error={errors.name} ref={nameRef} />
 
-                        <InputField label="Email Address" id="email" name="email" type="email" value={formData.email} placeholder="alexei@mail.com" onChange={handleChange} />
+                        <InputField label="Email Address" id="email" name="email" type="email" value={formData.email} placeholder="alexei@mail.com" onChange={handleChange} required error={errors.email} ref={emailRef} />
 
-                        <InputField label="Phone Number" id="phone" name="phone" type="tel" value={formData.phone} placeholder="+1 202-555-0136" onChange={handleChange} />
+                        <InputField label="Phone Number" id="phone" name="phone" type="tel" value={formData.phone} placeholder="+1 202-555-0136" onChange={handleChange} required error={errors.phone} ref={phoneRef} />
                     </div>
                 </div>
 
@@ -82,13 +164,13 @@ export default function CheckoutForm({ onSubmit }: CheckoutFormProps) {
                         Shipping info
                     </Typography>
                     <div className="mt-4 flex flex-col gap-4">
-                        <InputField label="Your Address" id="address" name="address" type="text" value={formData.address} placeholder={"1137 Williams Avenue"} onChange={handleChange} />
+                        <InputField label="Your Address" id="address" name="address" type="text" value={formData.address} placeholder={"1137 Williams Avenue"} onChange={handleChange} required error={errors.address} ref={addressRef} />
 
-                        <InputField label="ZIP Code" id="zip" name="zip" type="text" value={formData.zip} placeholder={"10001"} onChange={handleChange} />
+                        <InputField label="ZIP Code" id="zip" name="zip" type="text" value={formData.zip} placeholder={"10001"} onChange={handleChange} required error={errors.zip} ref={zipRef} />
 
-                        <InputField label="City" id="city" name="city" type="text" value={formData.city} placeholder={"New York"} onChange={handleChange} />
+                        <InputField label="City" id="city" name="city" type="text" value={formData.city} placeholder={"New York"} onChange={handleChange} required error={errors.city} ref={cityRef} />
 
-                        <InputField label="Country" id="country" name="country" type="text" value={formData.country} placeholder={"United States"} onChange={handleChange} />
+                        <InputField label="Country" id="country" name="country" type="text" value={formData.country} placeholder={"United States"} onChange={handleChange} required error={errors.country} ref={countryRef} />
                     </div>
                 </div>
 
@@ -144,9 +226,9 @@ export default function CheckoutForm({ onSubmit }: CheckoutFormProps) {
                 {formData.paymentMethod === 'eMoney' && (
                     <div className="mt-4 flex flex-col gap-4">
 
-                        <InputField label="e-Money Number" id="eMoneyNumber" name="eMoneyNumber" type="text" value={formData.eMoneyNumber} placeholder={"238521993"} onChange={handleChange} />
+                        <InputField label="e-Money Number" id="eMoneyNumber" name="eMoneyNumber" type="text" value={formData.eMoneyNumber} placeholder={"238521993"} onChange={handleChange} error={errors.eMoneyNumber} ref={eMoneyNumberRef} />
 
-                        <InputField label="e-Money PIN" id="eMoneyPin" name="eMoneyPin" type="password" value={formData.eMoneyPin} placeholder={"6891"} onChange={handleChange} />
+                        <InputField label="e-Money PIN" id="eMoneyPin" name="eMoneyPin" type="password" value={formData.eMoneyPin} placeholder={"6891"} onChange={handleChange} error={errors.eMoneyPin} ref={eMoneyPinRef} />
                     </div>
                 )}
 
