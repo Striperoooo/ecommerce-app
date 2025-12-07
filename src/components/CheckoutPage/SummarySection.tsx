@@ -27,7 +27,11 @@ export default function SummarySection() {
 
             <div className="flex justify-between items-center mb-6">
 
-                <Typography variant="h6Other" className="text-black">
+                <Typography
+                    variant="h6Other"
+                    className="text-black"
+                    as="h2"
+                >
                     Summary
                 </Typography>
             </div>

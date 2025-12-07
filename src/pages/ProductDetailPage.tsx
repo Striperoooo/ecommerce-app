@@ -10,6 +10,7 @@ import AboutUsSection from "../components/Home/AboutUsSection";
 import AddToCartControls from "../components/ProductDetailPage/AddToCartControls";
 import CartNotificationToast from "../components/Cart/CartNotificationToast";
 import { useState } from "react";
+import Typography from "../components/ui/Typography";
 
 export default function ProductDetailPage() {
 
@@ -93,10 +94,17 @@ export default function ProductDetailPage() {
                 others={others}
             />
 
+
             <div className="mt-43">
+                <Typography as="h2" className="sr-only">
+                    Category Button Links
+                </Typography>
                 <CategoryButtons />
             </div>
 
+            <Typography as="h2" className="sr-only">
+                About Us
+            </Typography>
             <AboutUsSection />
 
         </section>

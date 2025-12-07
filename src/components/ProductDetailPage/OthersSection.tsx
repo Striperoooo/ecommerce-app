@@ -13,6 +13,7 @@ export default function OthersSection({ others }: OthersSectionProps) {
             <Typography
                 variant="h5Other"
                 className="text-black"
+                as="h2"
             >
                 You may also like
             </Typography>

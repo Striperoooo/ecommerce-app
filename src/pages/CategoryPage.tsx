@@ -26,7 +26,11 @@ export default function CategoryPage() {
     return (
         <>
             <section className="bg-black text-center py-8" >
-                <Typography variant="h4Other" className="text-white">
+                <Typography
+                    variant="h4Other"
+                    className="text-white"
+                    as="h1"
+                >
                     {categoryName}
                 </Typography>
             </section>
@@ -46,11 +50,21 @@ export default function CategoryPage() {
                     ))}
                 </section>
 
+
+
                 <div className="mt-43">
+                    <Typography as="h2" className="sr-only">
+                        Category Button Links
+                    </Typography>
                     <CategoryButtons />
                 </div>
 
+
+
                 <div>
+                    <Typography as="h2" className="sr-only">
+                        About Us
+                    </Typography>
                     <AboutUsSection />
                 </div>
 

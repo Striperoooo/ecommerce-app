@@ -31,7 +31,11 @@ export default function DetailCard({
                     </Typography>
                 }
 
-                <Typography variant="h4OtherTight" className="text-black">
+                <Typography
+                    variant="h4OtherTight"
+                    className="text-black"
+                    as="h1"
+                >
                     {name}
                 </Typography>
 

@@ -133,6 +133,7 @@ export default function CheckoutForm({ onSubmit }: CheckoutFormProps) {
                 <Typography
                     variant="h4OtherTight"
                     className="text-black"
+                    as="h1"
                 >
                     Checkout
                 </Typography>
@@ -141,7 +142,8 @@ export default function CheckoutForm({ onSubmit }: CheckoutFormProps) {
                 <div className=''>
                     <Typography
                         variant="subtitle"
-                        className="text-d8 "
+                        className="text-d8"
+                        as="h2"
                     >
                         Billing Details
                     </Typography>
@@ -159,7 +161,8 @@ export default function CheckoutForm({ onSubmit }: CheckoutFormProps) {
                 <div className=''>
                     <Typography
                         variant="subtitle"
-                        className="text-d8 "
+                        className="text-d8"
+                        as="h2"
                     >
                         Shipping info
                     </Typography>
@@ -178,7 +181,8 @@ export default function CheckoutForm({ onSubmit }: CheckoutFormProps) {
                 <div className=''>
                     <Typography
                         variant="subtitle"
-                        className="text-d8 "
+                        className="text-d8"
+                        as="h2"
                     >
                         Payment details
                     </Typography>

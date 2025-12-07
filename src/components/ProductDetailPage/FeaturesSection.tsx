@@ -14,7 +14,11 @@ export default function FeaturesSection({
     return (
         <div className="mt-22">
             <section>
-                <Typography variant="h5Other" className="text-black">
+                <Typography
+                    variant="h5Other"
+                    className="text-black"
+                    as="h2"
+                >
                     Features
                 </Typography>
 
@@ -24,7 +28,11 @@ export default function FeaturesSection({
             </section>
 
             <section className="mt-15">
-                <Typography variant="h5Other" className="text-black">
+                <Typography
+                    variant="h5Other"
+                    className="text-black"
+                    as="h2"
+                >
                     In the box
                 </Typography>
 
