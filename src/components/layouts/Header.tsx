@@ -35,7 +35,8 @@ export default function Header() {
     return (
         <>
             <header className="sticky top-0 z-20">
-                <div className="bg-black border-b-1 border-white/25 h-22.5 flex items-center justify-between" >
+                <div className="bg-black border-b-1 border-white/25 h-22.5 flex items-center justify-between
+                md:justify-start md:gap-10.5" >
 
                     <button onClick={toggleNav}>
                         <Burger className="ml-6 text-white cursor-pointer hover:text-d8 active:text-d8/75" />
@@ -47,7 +48,8 @@ export default function Header() {
 
                     <button
                         onClick={toggleCart}
-                        className="relative group focus:outline-none"
+                        className="relative group focus:outline-none
+                        md:ml-auto"
                     >
                         <CartButton
                             className="mr-6 text-white cursor-pointer hover:text-d8 active:text-d8/75
