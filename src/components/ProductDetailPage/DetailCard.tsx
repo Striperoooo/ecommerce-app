@@ -1,6 +1,5 @@
 import type { ImageSet } from "../../types";
 import Typography from "../ui/Typography"
-import Button from "../ui/Button"
 
 interface DetailCardProps {
     name: string;
