@@ -44,7 +44,7 @@ export default function SummarySection() {
                                 <div className="flex items-center gap-4">
                                     <img
                                         src={item.image.mobile}
-                                        alt={name}
+                                        alt={item.name}
                                         className="w-[64px] h-[64px] rounded-lg"
                                     />
 
