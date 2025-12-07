@@ -1,25 +1,32 @@
 import CheckoutForm from "../components/CheckoutPage/CheckoutForm"
 import SummarySection from "../components/CheckoutPage/SummarySection"
-import Typography from "../components/ui/Typography"
+import OrderConfirmationModal from "../components/CheckoutPage/OrderConfirmationModal"
 import Button from "../components/ui/Button"
-import { useNavigate } from "react-router-dom"
 import { useCart } from "../hooks/useCartHook"
 import type { FormData } from "../components/CheckoutPage/CheckoutForm"
+import type { CartItem } from "../context/CartContext"
+import { useState } from "react"
 
 
 export default function CheckoutPage() {
-    const navigate = useNavigate()
     const { cart, clearCart } = useCart()
+    const [confirmedOrder, setConfirmedOrder] = useState<{ items: CartItem[], total: number } | null>(null)
 
     const handleFormSubmit = (formData: FormData) => {
+        const orderItems = [...cart]
+        const SHIPPING_COST = 50
+        const orderTotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0)
+        const orderGrandTotal = orderTotal + SHIPPING_COST
+
         console.log("Final Order Data:", {
             customerInfo: formData,
-            cartItems: cart,
+            orderItems,
+            orderGrandTotal,
         });
 
-        clearCart();
-        // Navigate to the "Thank You" order confirmation page
-        navigate('/order-confirmation');
+        setConfirmedOrder({ items: orderItems, total: orderGrandTotal })
+
+        clearCart()
     }
 
 
@@ -43,6 +50,15 @@ export default function CheckoutPage() {
                     )}
                 </div>
             </div>
+
+            {confirmedOrder && (
+                <OrderConfirmationModal
+                    orderItems={confirmedOrder.items}
+                    orderTotal={confirmedOrder.total}
+                    onClose={() => setConfirmedOrder(null)}
+                />
+            )}
+
         </>
     )
 }
