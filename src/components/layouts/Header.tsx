@@ -42,7 +42,8 @@ export default function Header() {
 
                 <div
                     className="bg-black border-b-1 border-white/25 h-22.5 flex items-center justify-between
-                md:justify-start md:gap-10.5  lg:justify-between lg:gap-0"
+                md:justify-start md:gap-10.5  lg:justify-between lg:gap-0
+                lg:mx-auto lg:max-w-[1110px]"
                 >
 
                     <button onClick={toggleNav} className="lg:hidden">

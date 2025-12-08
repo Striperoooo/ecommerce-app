@@ -11,16 +11,20 @@ export default function Footer() {
     return (
         <footer className="bg-1010">
 
-            <div className="mx-auto border-t-4 border-d8 w-[101px]
+            <div className="w-full max-w-[1110px] mx-auto">
+                <div className="border-t-4 border-d8 w-[101px] mx-auto
             md:ml-10
-            lg:ml-41.25">
-
+            lg:ml-0">
+                </div>
             </div>
+
 
             <div
                 className="flex flex-col items-center gap-12 text-center pt-12 pb-9.5 px-6
             md:items-start md:gap-8 md:pt-14 md:px-10
-            lg:px-41.25 lg:grid lg:grid-cols-2 lg:items-start">
+            lg:grid lg:grid-cols-2 lg:items-start
+            lg:px-0 max-w-[1110px] mx-auto">
+
 
                 <Link to="/" className="lg:col-span-1">
                     <Logo className="text-white hover:text-d8 active:text-d8/75" />
