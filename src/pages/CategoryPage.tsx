@@ -40,11 +40,13 @@ export default function CategoryPage() {
             </section>
 
             <div
-                className="container mx-auto px-6
-            md:px-10">
+                className="w-full px-6
+            md:px-10
+            lg:px-0 max-w-[1110px] mx-auto">
 
-                <section className="mt-16 flex flex-col gap-30 items-center justify-center">
-                    {sortedProducts.map((product) => (
+                <section className="mt-16 flex flex-col gap-30 items-center justify-center
+                lg:gap-40">
+                    {sortedProducts.map((product, index) => (
                         <CategoryProductCard
                             key={product.id}
                             slug={product.slug}
@@ -52,6 +54,7 @@ export default function CategoryPage() {
                             categoryImage={product.categoryImage}
                             isNew={product.new}
                             description={product.description}
+                            isReversed={index % 2 !== 0}
                         />
                     ))}
                 </section>
@@ -67,7 +70,7 @@ export default function CategoryPage() {
 
 
 
-                <div>
+                <div className="">
                     <Typography as="h2" className="sr-only">
                         About Us
                     </Typography>

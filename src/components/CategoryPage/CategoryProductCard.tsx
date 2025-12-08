@@ -8,18 +8,26 @@ interface CategoryProductCardProps {
     categoryImage: ImageSet;
     isNew: boolean;
     description: string;
+    isReversed?: boolean;
 }
 
 export default function CategoryProductCard({ slug,
     name,
     categoryImage,
     isNew,
-    description }: CategoryProductCardProps) {
+    description,
+    isReversed = false
+}: CategoryProductCardProps) {
 
     return (
-        <section>
+        <section className={`lg:flex lg:gap-31.25 lg:items-center lg:justify-center ${isReversed ? 'lg:flex-row-reverse' : ''}`}>
 
-            <picture>
+            <picture className="lg:flex-shrink-0">
+                <source
+                    media="(min-width: 1024px)"
+                    srcSet={categoryImage.desktop}
+                />
+
                 <source
                     media="(min-width: 768px)"
                     srcSet={categoryImage.tablet}
@@ -28,12 +36,14 @@ export default function CategoryProductCard({ slug,
                 <img
                     src={categoryImage.mobile}
                     alt={name}
-                    className="rounded-lg mx-auto"
+                    className="rounded-lg mx-auto
+                    lg:w-[540px] lg:h-[560px]"
                 />
             </picture>
 
             <div className="mt-8 flex flex-col gap-6 text-center items-center
-            md:mt-13">
+            md:mt-13
+            lg:text-left lg:items-start ">
 
                 {isNew &&
                     <Typography variant="overline" className="text-d8">
@@ -52,7 +62,8 @@ export default function CategoryProductCard({ slug,
                 <Typography
                     variant="p"
                     className="text-black/50
-                md:mt-2 md:max-w-[573px]"
+                md:mt-2 md:max-w-[573px]
+                lg:max-w-[445px] lg:w-[445px]"
                 >
                     {description}
                 </Typography>
