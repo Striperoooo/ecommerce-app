@@ -1,5 +1,6 @@
 import imageBestGearMobile from "../../assets/shared/mobile/image-best-gear.jpg"
 import imageBestGearTablet from "../../assets/shared/tablet/image-best-gear.jpg"
+import imageBestGearDesktop from "../../assets/shared/desktop/image-best-gear.jpg"
 import Typography from "../ui/Typography"
 
 
@@ -8,9 +9,14 @@ export default function AboutUsSection() {
     return (
         <section className="my-30">
 
-            <div>
+            <div className="lg:flex lg:flex-row-reverse lg:gap-31.25 lg:items-center">
 
                 <picture>
+                    <source
+                        media="(min-width: 1024px)"
+                        srcSet={imageBestGearDesktop}
+                    />
+
                     <source
                         media="(min-width: 768px)"
                         srcSet={imageBestGearTablet}
@@ -23,7 +29,8 @@ export default function AboutUsSection() {
 
                 <div
                     className="text-center
-                 md:flex md:flex-col md:items-center"
+                 md:flex md:flex-col md:items-center
+                 lg:text-left"
                 >
                     <Typography
                         variant="h4OtherTight" className="text-black mt-10 mb-8
