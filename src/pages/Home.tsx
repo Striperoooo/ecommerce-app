@@ -15,7 +15,8 @@ export default function Home() {
             <HeroSection />
 
             <div className="w-full h-full px-6
-            md:px-10">
+            md:px-10
+            lg:px-41.25">
 
                 <Typography as="h2" className="sr-only">
                     Category Button Links
