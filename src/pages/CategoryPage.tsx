@@ -25,17 +25,23 @@ export default function CategoryPage() {
 
     return (
         <>
-            <section className="bg-black text-center py-8" >
+            <section
+                className="bg-black text-center py-8
+            md:py-25">
+
                 <Typography
                     variant="h4Other"
-                    className="text-white"
+                    className="text-white
+                    md:text-[2.5rem] md:leading-[2.75rem] md:tracking-[0.089em]"
                     as="h1"
                 >
                     {categoryName}
                 </Typography>
             </section>
 
-            <div className="container mx-auto px-6">
+            <div
+                className="container mx-auto px-6
+            md:px-10">
 
                 <section className="mt-16 flex flex-col gap-30 items-center justify-center">
                     {sortedProducts.map((product) => (
