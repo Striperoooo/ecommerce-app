@@ -42,7 +42,11 @@ export default function CartModal({ isOpen, onClose }: CartModalProps) {
 
             <div
                 className={`absolute top-28.5 left-1/2 transform -translate-x-1/2 bg-white px-7 py-8 rounded-lg shadow-xl w-[calc(100%_-_3rem)]
-                md:w-[377px] md:left-auto md:right-10 md:translate-x-0 transition-all duration-300 ${isAnimating ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'}`}
+                md:w-[377px] md:left-auto md:right-10 md:translate-x-0 transition-all duration-300 
+                ${isAnimating
+                        ? 'opacity-100 translate-y-0'
+                        : 'opacity-0 -translate-y-4'}
+                    `}
                 onClick={e => e.stopPropagation()}
             >
                 <div className="flex justify-between items-center mb-6">
