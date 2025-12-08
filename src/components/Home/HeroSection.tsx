@@ -9,9 +9,9 @@ export default function HeroSection() {
         <>
 
             <section
-                className="relative min-h-[510px] w-full
-                md:flex md:justify-center md:min-h-[639px]
-                lg:px-41.25 lg:justify-start lg:min-h-[632px]"
+                className="relative min-h-[510px] w-full flex justify-center
+                md:min-h-[639px]
+                lg:min-h-[632px]"
             >
 
                 <div className="absolute inset-0 bg-[#191919] ">
@@ -35,50 +35,53 @@ export default function HeroSection() {
                     
                     md:bg-[image:var(--tablet-image)]
                     
-                    lg:bg-[image:var(--desktop-image)]"
+                    lg:bg-[image:var(--desktop-image)]
+                    lg:bg-[position:50%] "
                 >
                 </div>
 
-                <div className="relative z-10 flex flex-col items-center justify-center text-center px-6
+                <div className="relative md:flex md:justify-center lg:justify-start w-full max-w-[1110px] mx-auto">
+
+                    <div className="relative z-10 flex flex-col items-center justify-center text-center px-6
                 md:max-w-[379px] md:px-0
-                lg:items-start lg:max-w-[400px] lg:text-left">
+                lg:items-start lg:max-w-[400px] lg:text-left ">
 
-                    <Typography
-                        variant="overline"
-                        className="text-white/50 mt-27"
-                    >
-                        NEW PRODUCT
-                    </Typography>
+                        <Typography
+                            variant="overline"
+                            className="text-white/50 mt-27"
+                        >
+                            NEW PRODUCT
+                        </Typography>
 
-                    <Typography
-                        variant="h3Larger"
-                        className="text-white mt-4
+                        <Typography
+                            variant="h3Larger"
+                            className="text-white mt-4
                         md:text-[3.5rem] md:leading-[3.625rem] md:tracking-[0.125em]
                         lg:mt-6"
-                    >
-                        XX99 Mark II
-                        HeadphoneS
-                    </Typography>
+                        >
+                            XX99 Mark II
+                            HeadphoneS
+                        </Typography>
 
-                    <Typography
-                        variant="p"
-                        className="text-white/75 mt-6
+                        <Typography
+                            variant="p"
+                            className="text-white/75 mt-6
                         md:text-[0.938rem] md:leading-[1.563rem] md:tracking-[0px]"
-                    >
-                        Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.
-                    </Typography>
+                        >
+                            Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.
+                        </Typography>
 
-                    <Button
-                        variant="primary"
-                        className="mt-7 mb-28
+                        <Button
+                            variant="primary"
+                            className="mt-7 mb-28
                         lg:mt-10"
-                        to="/product/xx99-mark-two-headphones"
-                    >
-                        See Product
-                    </Button>
+                            to="/product/xx99-mark-two-headphones"
+                        >
+                            See Product
+                        </Button>
 
+                    </div>
                 </div>
-
 
             </section>
         </>

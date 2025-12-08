@@ -16,7 +16,7 @@ export default function Home() {
 
             <div className="w-full h-full px-6
             md:px-10
-            lg:px-41.25">
+            lg:px-0 max-w-[1110px] mx-auto">
 
                 <Typography as="h2" className="sr-only">
                     Category Button Links
