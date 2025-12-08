@@ -34,26 +34,36 @@ export default function CheckoutPage() {
     return (
         <>
             <div
-                className="bg-fafa px-6 pb-6
-            md:px-10 md:pb-29"
+                className="bg-f1f1 px-6 pb-6
+            md:px-10 md:pb-29
+            "
             >
-                <GoBackButton />
+                <div className="lg:px-0 w-full max-w-[1110px] mx-auto">
+                    <GoBackButton />
 
-                <CheckoutForm onSubmit={handleFormSubmit} />
+                    <div className="lg:flex lg:gap-7.5 lg:items-start">
+                        <div className="w-full lg:w-[730px]">
+                            <CheckoutForm onSubmit={handleFormSubmit} />
+                        </div>
 
-                <div className="mt-8 bg-white px-6 py-8 rounded-lg ">
-                    <SummarySection />
-
-                    {cart.length > 0 && (
-                        <Button
-                            variant="primary"
-                            type="submit"
-                            form="checkout-form"
-                            className="mt-8 w-full"
+                        <div
+                            className="mt-8 bg-white px-6 py-8 rounded-lg w-full
+                        lg:mt-0 lg:w-[350px]"
                         >
-                            Continue & Pay
-                        </Button>
-                    )}
+                            <SummarySection />
+
+                            {cart.length > 0 && (
+                                <Button
+                                    variant="primary"
+                                    type="submit"
+                                    form="checkout-form"
+                                    className="mt-8 w-full"
+                                >
+                                    Continue & Pay
+                                </Button>
+                            )}
+                        </div>
+                    </div>
                 </div>
             </div>
 
