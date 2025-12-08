@@ -12,31 +12,46 @@ export default function FeaturesSection({
 }: FeaturesSectionProps) {
 
     return (
-        <div className="mt-22">
-            <section>
+        <div
+            className="mt-22
+        lg:flex lg:gap-31.25"
+        >
+            <section className="lg:max-w-[635px]">
                 <Typography
                     variant="h5Other"
-                    className="text-black"
+                    className="text-black
+                    md:text-[2rem] md:leading-[2.25rem] md:tracking-[0.071rem]"
                     as="h2"
                 >
                     Features
                 </Typography>
 
-                <Typography variant="p" className="mt-6 text-black/50 whitespace-pre-line">
+                <Typography
+                    variant="p"
+                    className="mt-6 text-black/50 whitespace-pre-line"
+                >
                     {features}
                 </Typography>
             </section>
 
-            <section className="mt-15">
+            <section
+                className="mt-15
+            md:mt-30 md:flex md:gap-39
+            lg:mt-0 lg:flex-col lg:gap-8"
+            >
                 <Typography
                     variant="h5Other"
-                    className="text-black"
+                    className="text-black
+                md:text-[2rem] md:leading-[2.25rem] md:tracking-[0.071rem]"
                     as="h2"
                 >
                     In the box
                 </Typography>
 
-                <div className="mt-6 flex flex-col gap-2">
+                <div
+                    className="mt-6 flex flex-col gap-2
+                md:mt-0"
+                >
                     {includes.map((included) => (
                         <div
                             key={included.item}

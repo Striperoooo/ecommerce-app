@@ -11,13 +11,16 @@ import AddToCartControls from "../components/ProductDetailPage/AddToCartControls
 import CartNotificationToast from "../components/Cart/CartNotificationToast";
 import { useState } from "react";
 import Typography from "../components/ui/Typography";
+import GoBackButton from "../components/ui/GoBackButton";
 
 export default function ProductDetailPage() {
 
     const [notficationMessage, setNotificationMessage] = useState<string | null>(null)
+    const [notificationKey, setNotificationKey] = useState(0)
 
     const showNotification = (productName: string) => {
         setNotificationMessage(`${productName} added to cart!`)
+        setNotificationKey(prev => prev + 1)
     }
 
     const closeNotification = () => {
@@ -55,26 +58,34 @@ export default function ProductDetailPage() {
 
 
     return (
-        <section className="px-6">
+        <section
+            className="px-6
+        md:px-10
+        lg:px-0 max-w-[1110px] mx-auto"
+        >
+
+            <GoBackButton />
+
             <DetailCard
                 name={name}
                 image={image}
                 isNew={isNew}
                 price={price}
                 description={description}
-            />
-
-            <AddToCartControls
-                id={id}
-                name={name}
-                cartName={cartName}
-                image={image}
-                price={price}
-                onAddtoCartSuccess={showNotification}
-            />
+            >
+                <AddToCartControls
+                    id={id}
+                    name={name}
+                    cartName={cartName}
+                    image={image}
+                    price={price}
+                    onAddtoCartSuccess={showNotification}
+                />
+            </DetailCard>
 
             {notficationMessage && (
                 <CartNotificationToast
+                    key={notificationKey}
                     message={notficationMessage}
                     onClose={closeNotification}
                 />

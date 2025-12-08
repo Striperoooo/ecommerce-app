@@ -25,20 +25,28 @@ export default function CategoryPage() {
 
     return (
         <>
-            <section className="bg-black text-center py-8" >
+            <section
+                className="bg-black text-center py-8
+            md:py-25">
+
                 <Typography
                     variant="h4Other"
-                    className="text-white"
+                    className="text-white
+                    md:text-[2.5rem] md:leading-[2.75rem] md:tracking-[0.089em]"
                     as="h1"
                 >
                     {categoryName}
                 </Typography>
             </section>
 
-            <div className="container mx-auto px-6">
+            <div
+                className="w-full px-6
+            md:px-10
+            lg:px-0 max-w-[1110px] mx-auto">
 
-                <section className="mt-16 flex flex-col gap-30 items-center justify-center">
-                    {sortedProducts.map((product) => (
+                <section className="mt-16 flex flex-col gap-30 items-center justify-center
+                lg:gap-40">
+                    {sortedProducts.map((product, index) => (
                         <CategoryProductCard
                             key={product.id}
                             slug={product.slug}
@@ -46,6 +54,7 @@ export default function CategoryPage() {
                             categoryImage={product.categoryImage}
                             isNew={product.new}
                             description={product.description}
+                            isReversed={index % 2 !== 0}
                         />
                     ))}
                 </section>
@@ -61,7 +70,7 @@ export default function CategoryPage() {
 
 
 
-                <div>
+                <div className="">
                     <Typography as="h2" className="sr-only">
                         About Us
                     </Typography>

@@ -44,7 +44,7 @@ export default function AddToCartControls({
     };
 
     return (
-        <div className="flex gap-4 mt-7.75">
+        <div className="flex gap-4">
             <QuantitySelector
                 quantity={quantity}
                 onIncrement={increment}

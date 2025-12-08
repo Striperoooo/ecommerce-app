@@ -1,6 +1,6 @@
 import type { ImageSet } from "../../types";
 import Typography from "../ui/Typography"
-import Button from "../ui/Button"
+import type { ReactNode } from "react";
 
 interface DetailCardProps {
     name: string;
@@ -8,6 +8,7 @@ interface DetailCardProps {
     isNew: boolean;
     price: number;
     description: string;
+    children?: ReactNode;
 }
 
 export default function DetailCard({
@@ -15,38 +16,76 @@ export default function DetailCard({
     image,
     isNew,
     price,
-    description
+    description,
+    children
 }: DetailCardProps) {
 
     const formattedPrice = new Intl.NumberFormat('en-US').format(price);
 
     return (
-        <section className="mt-6  flex justify-center">
-            <div className="flex flex-col gap-6  ">
-                <img src={image.mobile} alt={name} className=" rounded-lg" />
+        <section className="flex justify-center">
+            <div
+                className="flex flex-col gap-8 w-full max-w-[1110px]
+            md:flex-row md:gap-17.5
+            lg:gap-31.25"
+            >
 
-                {isNew &&
-                    <Typography variant="overline" className="text-d8">
-                        NEW PRODUCT
-                    </Typography>
-                }
+                <picture className="md:flex-shrink-0">
+                    <source
+                        media="(min-width: 1024px)"
+                        srcSet={image.desktop}
+                    />
 
-                <Typography
-                    variant="h4OtherTight"
-                    className="text-black"
-                    as="h1"
+                    <source
+                        media="(min-width: 768px)"
+                        srcSet={image.tablet}
+                    />
+
+                    <img
+                        src={image.mobile}
+                        alt={name}
+                        className="rounded-lg
+                        md:w-[280px] md:min-h-[480px]
+                        lg:w-[540px] lg:h-[560px]"
+                    />
+                </picture>
+
+                <div
+                    className="flex flex-col gap-6
+                    md:justify-center"
                 >
-                    {name}
-                </Typography>
+                    {isNew &&
+                        <Typography
+                            variant="overline"
+                            className="text-d8
+                        md:text-[0.75rem] md:leading-normal md:tracking-[0.536rem]"
+                        >
+                            NEW PRODUCT
+                        </Typography>
+                    }
 
-                <Typography variant="p" className="text-black/50">
-                    {description}
-                </Typography>
+                    <Typography
+                        variant="h4OtherTight"
+                        className="text-black
+                        lg:text-[2.5rem] lg:leading-[2.75rem] lg:tracking-[0.089rem]"
+                        as="h1"
+                    >
+                        {name}
+                    </Typography>
 
-                <Typography variant="h6Other" className="text-black">
-                    $ {formattedPrice}
-                </Typography>
+                    <Typography variant="p" className="text-black/50
+                    md:max-w-[345px]
+                    lg:max-w-[445px]"
+                    >
+                        {description}
+                    </Typography>
 
+                    <Typography variant="h6Other" className="text-black">
+                        $ {formattedPrice}
+                    </Typography>
+
+                    {children}
+                </div>
             </div>
         </section>
     )

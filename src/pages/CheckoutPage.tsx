@@ -1,6 +1,7 @@
 import CheckoutForm from "../components/CheckoutPage/CheckoutForm"
 import SummarySection from "../components/CheckoutPage/SummarySection"
 import OrderConfirmationModal from "../components/CheckoutPage/OrderConfirmationModal"
+import GoBackButton from "../components/ui/GoBackButton"
 import Button from "../components/ui/Button"
 import { useCart } from "../hooks/useCartHook"
 import type { FormData } from "../components/CheckoutPage/CheckoutForm"
@@ -32,22 +33,37 @@ export default function CheckoutPage() {
 
     return (
         <>
-            <div className="bg-fafa p-6">
-                <CheckoutForm onSubmit={handleFormSubmit} />
+            <div
+                className="bg-f1f1 px-6 pb-6
+            md:px-10 md:pb-29
+            "
+            >
+                <div className="lg:px-0 w-full max-w-[1110px] mx-auto">
+                    <GoBackButton />
 
-                <div className="mt-8 bg-white px-6 py-8 rounded-lg ">
-                    <SummarySection />
+                    <div className="lg:flex lg:gap-7.5 lg:items-start">
+                        <div className="w-full lg:w-[730px]">
+                            <CheckoutForm onSubmit={handleFormSubmit} />
+                        </div>
 
-                    {cart.length > 0 && (
-                        <Button
-                            variant="primary"
-                            type="submit"
-                            form="checkout-form"
-                            className="mt-8 w-full"
+                        <div
+                            className="mt-8 bg-white px-6 py-8 rounded-lg w-full
+                        lg:mt-0 lg:w-[350px]"
                         >
-                            Continue & Pay
-                        </Button>
-                    )}
+                            <SummarySection />
+
+                            {cart.length > 0 && (
+                                <Button
+                                    variant="primary"
+                                    type="submit"
+                                    form="checkout-form"
+                                    className="mt-8 w-full"
+                                >
+                                    Continue & Pay
+                                </Button>
+                            )}
+                        </div>
+                    </div>
                 </div>
             </div>
 
