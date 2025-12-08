@@ -11,6 +11,7 @@ import AddToCartControls from "../components/ProductDetailPage/AddToCartControls
 import CartNotificationToast from "../components/Cart/CartNotificationToast";
 import { useState } from "react";
 import Typography from "../components/ui/Typography";
+import GoBackButton from "../components/ui/GoBackButton";
 
 export default function ProductDetailPage() {
 
@@ -55,23 +56,29 @@ export default function ProductDetailPage() {
 
 
     return (
-        <section className="px-6">
+        <section
+            className="px-6
+        md:px-10"
+        >
+
+            <GoBackButton />
+
             <DetailCard
                 name={name}
                 image={image}
                 isNew={isNew}
                 price={price}
                 description={description}
-            />
-
-            <AddToCartControls
-                id={id}
-                name={name}
-                cartName={cartName}
-                image={image}
-                price={price}
-                onAddtoCartSuccess={showNotification}
-            />
+            >
+                <AddToCartControls
+                    id={id}
+                    name={name}
+                    cartName={cartName}
+                    image={image}
+                    price={price}
+                    onAddtoCartSuccess={showNotification}
+                />
+            </DetailCard>
 
             {notficationMessage && (
                 <CartNotificationToast
