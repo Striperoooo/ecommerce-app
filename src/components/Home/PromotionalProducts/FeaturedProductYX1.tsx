@@ -2,6 +2,7 @@ import Typography from "../../ui/Typography"
 import Button from "../../ui/Button"
 import imageEarphonesYX1Mobile from "../../../assets/home/mobile/image-earphones-yx1.jpg"
 import imageEarphonesYX1Tablet from "../../../assets/home/tablet/image-earphones-yx1.jpg"
+import imageEarphonesYX1Desktop from "../../../assets/home/desktop/image-earphones-yx1.jpg"
 
 
 export default function FeaturedProductYX1() {
@@ -13,6 +14,7 @@ export default function FeaturedProductYX1() {
                 style={{
                     '--mobile-image': `url(${imageEarphonesYX1Mobile})`,
                     '--tablet-image': `url(${imageEarphonesYX1Tablet})`,
+                    '--desktop-image': `url(${imageEarphonesYX1Desktop})`,
                 } as React.CSSProperties}
 
                 className="w-full h-[200px] bg-cover bg-center rounded-lg px-6 py-25
@@ -20,7 +22,9 @@ export default function FeaturedProductYX1() {
                 bg-[image:var(--mobile-image)]
             
                 md:bg-[image:var(--tablet-image)]
-                md:h-[320px]"
+                md:h-[320px]
+                
+                lg:bg-[image:var(--desktop-image)]"
             >
             </div>
 
