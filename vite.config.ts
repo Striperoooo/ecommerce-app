@@ -10,6 +10,11 @@ export default defineConfig({
     tailwindcss(),
     svgr(),
   ],
+  test: {
+    globals: true,
+    environment: 'jsdom',
+    setupFiles: './src/setup.ts',
+  },
   css: {
     postcss: './postcss.config.cjs',
   },
