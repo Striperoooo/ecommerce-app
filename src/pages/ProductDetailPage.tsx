@@ -60,7 +60,8 @@ export default function ProductDetailPage() {
     return (
         <section
             className="px-6
-        md:px-10"
+        md:px-10
+        lg:px-0 max-w-[1110px] mx-auto"
         >
 
             <GoBackButton />

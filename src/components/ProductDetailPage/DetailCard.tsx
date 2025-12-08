@@ -25,11 +25,17 @@ export default function DetailCard({
     return (
         <section className="flex justify-center">
             <div
-                className="flex flex-col gap-8
-            md:flex-row md:justify-between md:gap-17.5"
+                className="flex flex-col gap-8 w-full max-w-[1110px]
+            md:flex-row md:gap-17.5
+            lg:gap-31.25"
             >
 
                 <picture className="md:flex-shrink-0">
+                    <source
+                        media="(min-width: 1024px)"
+                        srcSet={image.desktop}
+                    />
+
                     <source
                         media="(min-width: 768px)"
                         srcSet={image.tablet}
@@ -39,7 +45,8 @@ export default function DetailCard({
                         src={image.mobile}
                         alt={name}
                         className="rounded-lg
-                        md:w-[280px] md:min-h-[480px]"
+                        md:w-[280px] md:min-h-[480px]
+                        lg:w-[540px] lg:h-[560px]"
                     />
                 </picture>
 
@@ -59,14 +66,16 @@ export default function DetailCard({
 
                     <Typography
                         variant="h4OtherTight"
-                        className="text-black"
+                        className="text-black
+                        lg:text-[2.5rem] lg:leading-[2.75rem] lg:tracking-[0.089rem]"
                         as="h1"
                     >
                         {name}
                     </Typography>
 
                     <Typography variant="p" className="text-black/50
-                    md:max-w-[345px]"
+                    md:max-w-[345px]
+                    lg:max-w-[445px]"
                     >
                         {description}
                     </Typography>
