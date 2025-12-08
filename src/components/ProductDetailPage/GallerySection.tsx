@@ -1,4 +1,5 @@
 import type { GalleryImages } from "../../types";
+import ResponsiveImage from "../ui/ResponsiveImage";
 
 interface GallerySectionProps {
     gallery: GalleryImages;
@@ -22,63 +23,27 @@ export default function GallerySection({
                 lg:w-full lg:justify-between"
                 >
 
-                    <picture className="md:flex-shrink-0">
-                        <source
-                            media="(min-width: 1024px)"
-                            srcSet={gallery.first.desktop}
-                        />
+                    <ResponsiveImage
+                        image={gallery.first}
+                        alt={`Gallery image for ${name}`}
+                        className="md:flex-shrink-0 h-[174px] rounded-lg lg:h-auto"
+                        imgClassName="rounded-lg"
+                    />
 
-                        <source
-                            media="(min-width: 768px)"
-                            srcSet={gallery.first.tablet}
-                        />
-
-                        <img
-                            src={gallery.first.mobile}
-                            alt={`Gallery image for ${name}`}
-                            className="h-[174px] rounded-lg
-                            lg:h-auto"
-                        />
-                    </picture>
-
-                    <picture className="md:flex-shrink-0">
-                        <source
-                            media="(min-width: 1024px)"
-                            srcSet={gallery.second.desktop}
-                        />
-
-                        <source
-                            media="(min-width: 768px)"
-                            srcSet={gallery.second.tablet}
-                        />
-
-                        <img
-                            src={gallery.second.mobile}
-                            alt={`Gallery image for ${name}`}
-                            className="h-[174px] rounded-lg
-                            lg:h-auto"
-                        />
-                    </picture>
+                    <ResponsiveImage
+                        image={gallery.second}
+                        alt={`Gallery image for ${name}`}
+                        className="md:flex-shrink-0 h-[174px] rounded-lg lg:h-auto"
+                        imgClassName="rounded-lg"
+                    />
                 </div>
 
-                <picture className="md:flex-shrink-0">
-                    <source
-                        media="(min-width: 1024px)"
-                        srcSet={gallery.third.desktop}
-                    />
-
-                    <source
-                        media="(min-width: 768px)"
-                        srcSet={gallery.third.tablet}
-                    />
-
-                    <img
-                        src={gallery.third.mobile}
-                        alt={`Gallery image for ${name}`}
-                        className="h-[368px] rounded-lg
-                        lg:h-auto"
-                    />
-                </picture>
+                <ResponsiveImage
+                    image={gallery.third}
+                    alt={`Gallery image for ${name}`}
+                    className="md:flex-shrink-0 h-[368px] rounded-lg lg:h-auto"
+                    imgClassName="rounded-lg"
+                />
             </div>
         </section>
 

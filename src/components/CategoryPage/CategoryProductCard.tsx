@@ -1,6 +1,7 @@
 import type { ImageSet } from "../../types";
 import Typography from "../ui/Typography"
 import Button from "../ui/Button"
+import ResponsiveImage from "../ui/ResponsiveImage";
 
 interface CategoryProductCardProps {
     slug: string;
@@ -22,24 +23,12 @@ export default function CategoryProductCard({ slug,
     return (
         <section className={`lg:flex lg:gap-31.25 lg:items-center lg:justify-center ${isReversed ? 'lg:flex-row-reverse' : ''}`}>
 
-            <picture className="lg:flex-shrink-0">
-                <source
-                    media="(min-width: 1024px)"
-                    srcSet={categoryImage.desktop}
-                />
-
-                <source
-                    media="(min-width: 768px)"
-                    srcSet={categoryImage.tablet}
-                />
-
-                <img
-                    src={categoryImage.mobile}
-                    alt={name}
-                    className="rounded-lg mx-auto
-                    lg:w-[540px] lg:h-[560px]"
-                />
-            </picture>
+            <ResponsiveImage
+                image={categoryImage}
+                alt={name}
+                className="lg:flex-shrink-0 rounded-lg mx-auto lg:w-[540px] lg:h-[560px]"
+                imgClassName="rounded-lg"
+            />
 
             <div className="mt-8 flex flex-col gap-6 text-center items-center
             md:mt-13

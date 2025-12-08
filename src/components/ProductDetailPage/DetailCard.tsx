@@ -1,6 +1,7 @@
 import type { ImageSet } from "../../types";
 import Typography from "../ui/Typography"
 import type { ReactNode } from "react";
+import ResponsiveImage from "../ui/ResponsiveImage";
 
 interface DetailCardProps {
     name: string;
@@ -30,25 +31,12 @@ export default function DetailCard({
             lg:gap-31.25"
             >
 
-                <picture className="md:flex-shrink-0">
-                    <source
-                        media="(min-width: 1024px)"
-                        srcSet={image.desktop}
-                    />
-
-                    <source
-                        media="(min-width: 768px)"
-                        srcSet={image.tablet}
-                    />
-
-                    <img
-                        src={image.mobile}
-                        alt={name}
-                        className="rounded-lg
-                        md:w-[280px] md:min-h-[480px]
-                        lg:w-[540px] lg:h-[560px]"
-                    />
-                </picture>
+                <ResponsiveImage
+                    image={image}
+                    alt={name}
+                    className="md:flex-shrink-0 rounded-lg md:w-[280px] md:min-h-[480px] lg:w-[540px] lg:h-[560px]"
+                    imgClassName="rounded-lg"
+                />
 
                 <div
                     className="flex flex-col gap-6
