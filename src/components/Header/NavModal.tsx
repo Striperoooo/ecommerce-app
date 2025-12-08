@@ -56,7 +56,7 @@ export default function NavModal({ isOpen, onClose }: NavModalProps) {
         <div className="fixed inset-0 z-19" aria-modal="true">
             {/* Backdrop */}
             <div
-                className={`absolute inset-0 bg-black/40 transition-opacity duration-300 ${isAnimating ? 'bg-opacity-40' : 'bg-opacity-0'}`}
+                className={`absolute inset-0 bg-black/40 transition-opacity duration-300 ${isAnimating ? 'opacity-100' : 'opacity-0'}`}
                 onClick={onClose}
             ></div>
 
@@ -66,7 +66,7 @@ export default function NavModal({ isOpen, onClose }: NavModalProps) {
                 <div className="relative pt-[90px] pb-25">
                     {/* Modal Panel */}
                     <div
-                        className={`bg-white pt-20 pb-8 px-6 rounded-b-lg shadow-lg transition-transform duration-300 ease-in-out ${isAnimating ? 'transform-none' : '-translate-y-full'}`}
+                        className={`bg-white pt-20 pb-8 px-6 rounded-b-lg shadow-lg transition-all duration-300 ${isAnimating ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'}`}
                         onClick={e => e.stopPropagation()}
                     >
                         <div className="flex flex-col items-center gap-y-[68px] md:flex-row md:gap-x-2.5 md:justify-center">
