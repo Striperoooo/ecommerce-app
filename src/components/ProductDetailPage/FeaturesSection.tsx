@@ -12,8 +12,11 @@ export default function FeaturesSection({
 }: FeaturesSectionProps) {
 
     return (
-        <div className="mt-22">
-            <section>
+        <div
+            className="mt-22
+        lg:flex lg:gap-31.25"
+        >
+            <section className="lg:max-w-[635px]">
                 <Typography
                     variant="h5Other"
                     className="text-black
@@ -33,7 +36,8 @@ export default function FeaturesSection({
 
             <section
                 className="mt-15
-            mt-30 md:flex md:gap-39"
+            md:mt-30 md:flex md:gap-39
+            lg:mt-0 lg:flex-col lg:gap-8"
             >
                 <Typography
                     variant="h5Other"

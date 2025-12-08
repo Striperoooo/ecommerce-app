@@ -14,12 +14,20 @@ export default function GallerySection({
         <section className="mt-22">
             <div
                 className="flex flex-col gap-5
-            md:flex-row md:justify-center"
+            md:flex-row md:justify-center
+            lg:px-0 max-w-[1110px] mx-auto w-full"
             >
 
-                <div className="flex flex-col gap-5">
+                <div className="flex flex-col gap-5
+                lg:w-full lg:justify-between"
+                >
 
                     <picture className="md:flex-shrink-0">
+                        <source
+                            media="(min-width: 1024px)"
+                            srcSet={gallery.first.desktop}
+                        />
+
                         <source
                             media="(min-width: 768px)"
                             srcSet={gallery.first.tablet}
@@ -28,11 +36,17 @@ export default function GallerySection({
                         <img
                             src={gallery.first.mobile}
                             alt={`Gallery image for ${name}`}
-                            className="h-[174px] rounded-lg"
+                            className="h-[174px] rounded-lg
+                            lg:h-auto"
                         />
                     </picture>
 
                     <picture className="md:flex-shrink-0">
+                        <source
+                            media="(min-width: 1024px)"
+                            srcSet={gallery.second.desktop}
+                        />
+
                         <source
                             media="(min-width: 768px)"
                             srcSet={gallery.second.tablet}
@@ -41,12 +55,18 @@ export default function GallerySection({
                         <img
                             src={gallery.second.mobile}
                             alt={`Gallery image for ${name}`}
-                            className="h-[174px] rounded-lg"
+                            className="h-[174px] rounded-lg
+                            lg:h-auto"
                         />
                     </picture>
                 </div>
 
                 <picture className="md:flex-shrink-0">
+                    <source
+                        media="(min-width: 1024px)"
+                        srcSet={gallery.third.desktop}
+                    />
+
                     <source
                         media="(min-width: 768px)"
                         srcSet={gallery.third.tablet}
@@ -55,7 +75,8 @@ export default function GallerySection({
                     <img
                         src={gallery.third.mobile}
                         alt={`Gallery image for ${name}`}
-                        className="h-[368px] rounded-lg"
+                        className="h-[368px] rounded-lg
+                        lg:h-auto"
                     />
                 </picture>
             </div>
