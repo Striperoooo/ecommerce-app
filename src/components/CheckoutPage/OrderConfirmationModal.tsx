@@ -159,7 +159,7 @@ export default function OrderConfirmationModal({
                     {/* Grand Total Footer */}
                     <div
                         className="bg-black text-white p-6 rounded-b-lg
-                    md:rounded-lg md:rounded-l-none"
+                    md:rounded-lg md:rounded-l-none md:flex md:flex-col md:justify-center"
                     >
 
                         <Typography
