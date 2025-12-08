@@ -148,7 +148,10 @@ export default function CheckoutForm({ onSubmit }: CheckoutFormProps) {
                         Billing Details
                     </Typography>
 
-                    <div className="mt-4 flex flex-col gap-4">
+                    <div
+                        className="mt-4 flex flex-col gap-4
+                    md:grid md:grid-cols-2 md:gap-x-4 md:gap-y-6"
+                    >
                         <InputField label="Name" id="name" name="name" type="text" value={formData.name} placeholder="Alexei Ward" onChange={handleChange} required error={errors.name} ref={nameRef} />
 
                         <InputField label="Email Address" id="email" name="email" type="email" value={formData.email} placeholder="alexei@mail.com" onChange={handleChange} required error={errors.email} ref={emailRef} />
@@ -166,8 +169,15 @@ export default function CheckoutForm({ onSubmit }: CheckoutFormProps) {
                     >
                         Shipping info
                     </Typography>
-                    <div className="mt-4 flex flex-col gap-4">
-                        <InputField label="Your Address" id="address" name="address" type="text" value={formData.address} placeholder={"1137 Williams Avenue"} onChange={handleChange} required error={errors.address} ref={addressRef} />
+
+                    <div
+                        className="mt-4 flex flex-col gap-4
+                        md:grid md:grid-cols-2 md:gap-x-4 md:gap-y-6"
+                    >
+
+                        <div className="md:col-span-2">
+                            <InputField label="Your Address" id="address" name="address" type="text" value={formData.address} placeholder={"1137 Williams Avenue"} onChange={handleChange} required error={errors.address} ref={addressRef} />
+                        </div>
 
                         <InputField label="ZIP Code" id="zip" name="zip" type="text" value={formData.zip} placeholder={"10001"} onChange={handleChange} required error={errors.zip} ref={zipRef} />
 
@@ -187,48 +197,64 @@ export default function CheckoutForm({ onSubmit }: CheckoutFormProps) {
                         Payment details
                     </Typography>
 
-                    <div className="mt-4 flex flex-col gap-4">
+
+                    <div
+                        className="mt-4 flex flex-col gap-4
+                    ">
+
                         <label className="block text-xs font-bold leading-normal tracking-[-0.21px] text-black ">
                             Payment Method
                         </label>
 
-                        {/* Radio Button 1: e-Money */}
-                        <div className="mt-1">
+                        <div
+                            className="flex flex-col gap-4
+                            md:grid md:grid-cols-2"
+                        >
 
-                            <label className="flex items-center  gap-4 border border-input-border rounded-lg p-4 cursor-pointer hover:border-d8">
+                            {/* Radio Button 1: e-Money */}
+                            <div
+                                className=""
+                            >
 
-                                <input type="radio" name="paymentMethod" value="eMoney" checked={formData.paymentMethod === 'eMoney'} onChange={handlePaymentChange} className="h-5 w-5 text-d8" />
+                                <label className="flex items-center  gap-4 border border-input-border rounded-lg p-4 cursor-pointer hover:border-d8">
 
-                                <Typography
-                                    variant="overlineBoldTight"
-                                    className="text-black"
-                                >
-                                    e-Money
-                                </Typography>
-                            </label>
-                        </div>
+                                    <input type="radio" name="paymentMethod" value="eMoney" checked={formData.paymentMethod === 'eMoney'} onChange={handlePaymentChange} className="h-5 w-5 text-d8" />
 
-                        {/* Radio Button 2: Cash on Delivery */}
-                        <div className="mt-1">
+                                    <Typography
+                                        variant="overlineBoldTight"
+                                        className="text-black"
+                                    >
+                                        e-Money
+                                    </Typography>
+                                </label>
+                            </div>
 
-                            <label className="flex items-center  gap-4 border border-input-border rounded-lg p-4 cursor-pointer hover:border-d8">
+                            {/* Radio Button 2: Cash on Delivery */}
+                            <div className="">
 
-                                <input type="radio" name="paymentMethod" value="cashOnDelivery" checked={formData.paymentMethod === 'cashOnDelivery'} onChange={handlePaymentChange} className="h-5 w-5 text-d8" />
+                                <label className="flex items-center  gap-4 border border-input-border rounded-lg p-4 cursor-pointer hover:border-d8">
 
-                                <Typography
-                                    variant="overlineBoldTight"
-                                    className="text-black"
-                                >
-                                    Cash on Delivery
-                                </Typography>
-                            </label>
+                                    <input type="radio" name="paymentMethod" value="cashOnDelivery" checked={formData.paymentMethod === 'cashOnDelivery'} onChange={handlePaymentChange} className="h-5 w-5 text-d8" />
+
+                                    <Typography
+                                        variant="overlineBoldTight"
+                                        className="text-black"
+                                    >
+                                        Cash on Delivery
+                                    </Typography>
+                                </label>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 {/* Conditionally rendered fields based on radio selection */}
                 {formData.paymentMethod === 'eMoney' && (
-                    <div className="mt-4 flex flex-col gap-4">
+                    <div
+                        className="mt-4 flex flex-col gap-4
+                    md:grid md:grid-cols-2"
+                    >
+
 
                         <InputField label="e-Money Number" id="eMoneyNumber" name="eMoneyNumber" type="text" value={formData.eMoneyNumber} placeholder={"238521993"} onChange={handleChange} error={errors.eMoneyNumber} ref={eMoneyNumberRef} />
 

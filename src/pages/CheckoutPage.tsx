@@ -1,6 +1,7 @@
 import CheckoutForm from "../components/CheckoutPage/CheckoutForm"
 import SummarySection from "../components/CheckoutPage/SummarySection"
 import OrderConfirmationModal from "../components/CheckoutPage/OrderConfirmationModal"
+import GoBackButton from "../components/ui/GoBackButton"
 import Button from "../components/ui/Button"
 import { useCart } from "../hooks/useCartHook"
 import type { FormData } from "../components/CheckoutPage/CheckoutForm"
@@ -32,7 +33,12 @@ export default function CheckoutPage() {
 
     return (
         <>
-            <div className="bg-fafa p-6">
+            <div
+                className="bg-fafa px-6 pb-6
+            md:px-10 md:pb-29"
+            >
+                <GoBackButton />
+
                 <CheckoutForm onSubmit={handleFormSubmit} />
 
                 <div className="mt-8 bg-white px-6 py-8 rounded-lg ">
