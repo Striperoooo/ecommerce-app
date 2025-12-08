@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import Typography from "../ui/Typography"
 import Button from "../ui/Button"
@@ -19,10 +19,22 @@ export default function OrderConfirmationModal({
 
     const navigate = useNavigate()
     const [showAllItems, setShowAllItems] = useState(false)
+    const [isMounted, setIsMounted] = useState(false);
+    const [isAnimating, setIsAnimating] = useState(false);
+
+    useEffect(() => {
+        setIsMounted(true);
+        const timer = setTimeout(() => setIsAnimating(true), 10);
+        return () => clearTimeout(timer);
+    }, []);
 
     const handleBackHome = () => {
-        onClose()
-        navigate('/')
+        setIsAnimating(false);
+        setTimeout(() => {
+            setIsMounted(false);
+            onClose();
+            navigate('/');
+        }, 300);
     }
 
     const cartMultipleItems = orderItems.length > 1
@@ -32,14 +44,17 @@ export default function OrderConfirmationModal({
 
     const formatNumber = (num: number) => new Intl.NumberFormat('en-US').format(num)
 
+    if (!isMounted) return null;
+
     return (
         <div
-            className="fixed inset-0 bg-black/40 z-50 flex items-center justify-center p-6
+            className="fixed inset-0 z-50 flex items-center justify-center p-6
         md:px-28.5">
+            <div className={`absolute inset-0 bg-black/40 transition-opacity duration-300 ${isAnimating ? 'opacity-100' : 'opacity-0'}`} />
 
             <div
-                className="bg-white p-8 rounded-lg w-full max-h-[90vh] overflow-y-auto
-            md:p-12 "
+                className={`bg-white p-8 rounded-lg w-full max-h-[90vh] overflow-y-auto relative
+            md:p-12 md:max-w-[540px] transition-all duration-300 ${isAnimating ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'}`}
             >
 
                 <CheckIcon className="" />

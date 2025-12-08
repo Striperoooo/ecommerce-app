@@ -16,9 +16,11 @@ import GoBackButton from "../components/ui/GoBackButton";
 export default function ProductDetailPage() {
 
     const [notficationMessage, setNotificationMessage] = useState<string | null>(null)
+    const [notificationKey, setNotificationKey] = useState(0)
 
     const showNotification = (productName: string) => {
         setNotificationMessage(`${productName} added to cart!`)
+        setNotificationKey(prev => prev + 1)
     }
 
     const closeNotification = () => {
@@ -82,6 +84,7 @@ export default function ProductDetailPage() {
 
             {notficationMessage && (
                 <CartNotificationToast
+                    key={notificationKey}
                     message={notficationMessage}
                     onClose={closeNotification}
                 />
