@@ -2,12 +2,28 @@ import { useCart } from "../../hooks/useCartHook";
 import Typography from "../ui/Typography";
 import Button from "../ui/Button";
 import CartItemUpdateControls from "./CartItemUpdateControls";
+import { useEffect, useState } from "react";
 
 interface CartModalProps {
+    isOpen: boolean;
     onClose: () => void;
 }
 
-export default function CartModal({ onClose }: CartModalProps) {
+export default function CartModal({ isOpen, onClose }: CartModalProps) {
+    const [isMounted, setIsMounted] = useState(false);
+    const [isAnimating, setIsAnimating] = useState(false);
+
+    useEffect(() => {
+        if (isOpen) {
+            setIsMounted(true);
+            const timer = setTimeout(() => setIsAnimating(true), 10);
+            return () => clearTimeout(timer);
+        } else {
+            setIsAnimating(false);
+            const timer = setTimeout(() => setIsMounted(false), 300);
+            return () => clearTimeout(timer);
+        }
+    }, [isOpen]);
 
     const { cart, clearCart } = useCart()
 
@@ -18,11 +34,15 @@ export default function CartModal({ onClose }: CartModalProps) {
         clearCart()
     }
 
+    if (!isMounted) return null;
+
     return (
-        <div className="fixed inset-0 bg-black/40 z-20" onClick={onClose}>
+        <div className="fixed inset-0 z-20" onClick={onClose}>
+            <div className={`absolute inset-0 bg-black/40 transition-opacity duration-300 ${isAnimating ? 'opacity-100' : 'opacity-0'}`} />
 
             <div
-                className="absolute top-28.5 left-1/2 transform -translate-x-1/2 bg-white px-7 py-8 rounded-lg shadow-xl w-[calc(100%_-_3rem)]"
+                className={`absolute top-28.5 left-1/2 transform -translate-x-1/2 bg-white px-7 py-8 rounded-lg shadow-xl w-[calc(100%_-_3rem)]
+                md:w-[377px] md:left-auto md:right-10 md:translate-x-0 transition-all duration-300 ${isAnimating ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'}`}
                 onClick={e => e.stopPropagation()}
             >
                 <div className="flex justify-between items-center mb-6">

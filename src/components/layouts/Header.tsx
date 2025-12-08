@@ -69,7 +69,7 @@ export default function Header() {
             </header>
 
             <NavModal isOpen={isNavOpen} onClose={handleNavClose} />
-            {isCartOpen && <CartModal onClose={handleOnClose} />}
+            <CartModal isOpen={isCartOpen} onClose={handleOnClose} />
         </>
     )
 
