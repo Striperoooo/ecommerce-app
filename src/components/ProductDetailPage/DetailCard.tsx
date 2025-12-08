@@ -1,5 +1,6 @@
 import type { ImageSet } from "../../types";
 import Typography from "../ui/Typography"
+import type { ReactNode } from "react";
 
 interface DetailCardProps {
     name: string;
@@ -7,6 +8,7 @@ interface DetailCardProps {
     isNew: boolean;
     price: number;
     description: string;
+    children?: ReactNode;
 }
 
 export default function DetailCard({
@@ -14,38 +16,67 @@ export default function DetailCard({
     image,
     isNew,
     price,
-    description
+    description,
+    children
 }: DetailCardProps) {
 
     const formattedPrice = new Intl.NumberFormat('en-US').format(price);
 
     return (
-        <section className="mt-6  flex justify-center">
-            <div className="flex flex-col gap-6  ">
-                <img src={image.mobile} alt={name} className=" rounded-lg" />
+        <section className="flex justify-center">
+            <div
+                className="flex flex-col gap-8
+            md:flex-row md:justify-between md:gap-17.5"
+            >
 
-                {isNew &&
-                    <Typography variant="overline" className="text-d8">
-                        NEW PRODUCT
-                    </Typography>
-                }
+                <picture className="md:flex-shrink-0">
+                    <source
+                        media="(min-width: 768px)"
+                        srcSet={image.tablet}
+                    />
 
-                <Typography
-                    variant="h4OtherTight"
-                    className="text-black"
-                    as="h1"
+                    <img
+                        src={image.mobile}
+                        alt={name}
+                        className="rounded-lg
+                        md:w-[280px] md:min-h-[480px]"
+                    />
+                </picture>
+
+                <div
+                    className="flex flex-col gap-6
+                    md:justify-center"
                 >
-                    {name}
-                </Typography>
+                    {isNew &&
+                        <Typography
+                            variant="overline"
+                            className="text-d8
+                        md:text-[0.75rem] md:leading-normal md:tracking-[0.536rem]"
+                        >
+                            NEW PRODUCT
+                        </Typography>
+                    }
 
-                <Typography variant="p" className="text-black/50">
-                    {description}
-                </Typography>
+                    <Typography
+                        variant="h4OtherTight"
+                        className="text-black"
+                        as="h1"
+                    >
+                        {name}
+                    </Typography>
 
-                <Typography variant="h6Other" className="text-black">
-                    $ {formattedPrice}
-                </Typography>
+                    <Typography variant="p" className="text-black/50
+                    md:max-w-[345px]"
+                    >
+                        {description}
+                    </Typography>
 
+                    <Typography variant="h6Other" className="text-black">
+                        $ {formattedPrice}
+                    </Typography>
+
+                    {children}
+                </div>
             </div>
         </section>
     )

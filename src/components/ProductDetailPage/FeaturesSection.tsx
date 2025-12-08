@@ -16,27 +16,38 @@ export default function FeaturesSection({
             <section>
                 <Typography
                     variant="h5Other"
-                    className="text-black"
+                    className="text-black
+                    md:text-[2rem] md:leading-[2.25rem] md:tracking-[0.071rem]"
                     as="h2"
                 >
                     Features
                 </Typography>
 
-                <Typography variant="p" className="mt-6 text-black/50 whitespace-pre-line">
+                <Typography
+                    variant="p"
+                    className="mt-6 text-black/50 whitespace-pre-line"
+                >
                     {features}
                 </Typography>
             </section>
 
-            <section className="mt-15">
+            <section
+                className="mt-15
+            mt-30 md:flex md:gap-39"
+            >
                 <Typography
                     variant="h5Other"
-                    className="text-black"
+                    className="text-black
+                md:text-[2rem] md:leading-[2.25rem] md:tracking-[0.071rem]"
                     as="h2"
                 >
                     In the box
                 </Typography>
 
-                <div className="mt-6 flex flex-col gap-2">
+                <div
+                    className="mt-6 flex flex-col gap-2
+                md:mt-0"
+                >
                     {includes.map((included) => (
                         <div
                             key={included.item}
