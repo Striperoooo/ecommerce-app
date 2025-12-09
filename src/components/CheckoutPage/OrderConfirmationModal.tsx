@@ -83,13 +83,14 @@ export default function OrderConfirmationModal({
                     {/* Order Summary Block */}
                     <div
                         className="mt-6 bg-f1f1 rounded-t-lg p-6
-                    md:mt-0 md:rounded-l-lg md:rounded-r-none"
+                    md:mt-0 md:rounded-l-lg md:rounded-r-none md:flex md:flex-col md:items-between md:justify-center md:p-4"
                     >
                         {/* Show only the first item initially */}
 
                         <div className="flex items-center justify-between">
 
-                            <div className="flex items-center gap-4">
+                            <div className="flex items-center gap-4
+                            md:gap-2">
 
                                 <img
                                     src={firstItem.image.mobile}
@@ -115,7 +116,8 @@ export default function OrderConfirmationModal({
 
                             <Typography
                                 variant="pBold"
-                                className="text-black/50"
+                                className="text-black/50
+                                md:ml-5"
                             >
                                 x{firstItem.quantity}
                             </Typography>
@@ -124,9 +126,13 @@ export default function OrderConfirmationModal({
                         {/* Conditionally show the rest of the items */}
                         {showAllItems && (
                             orderItems.slice(1).map(item => (
-                                <div key={item.id} className="mt-4 flex items-center justify-between">
+                                <div key={item.id} className="mt-4 flex items-center justify-between
+                                "
+                                >
 
-                                    <div className="flex items-center gap-4">
+                                    <div className="flex items-center gap-4
+                                    md:gap-2"
+                                    >
 
                                         <img
                                             src={item.image.mobile}
@@ -150,9 +156,13 @@ export default function OrderConfirmationModal({
                                         </div>
                                     </div>
 
-                                    <span className="text-sm text-black/50">
+                                    <Typography
+                                        variant="pBold"
+                                        className="text-black/50
+                                md:ml-5"
+                                    >
                                         x{item.quantity}
-                                    </span>
+                                    </Typography>
                                 </div>
                             ))
                         )}
