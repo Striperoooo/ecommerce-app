@@ -11,7 +11,7 @@ Highlights
 - **Testing:** Provider-level integration tests using **Vitest** and **React Testing Library** to ensure reliability of core flows.
 - **UX/UI:** Fully responsive design (Mobile/Tablet/Desktop) with optimized image loading and art direction.
 
-Live demo: https://charles-ecommerce.netlify.app/
+Live demo: https://ecommerce-charles.netlify.app/
 -----------------
 
 ![gif optimized ecommerce](https://github.com/user-attachments/assets/6588a101-8fb2-45b1-b134-9314d1e49e76)
