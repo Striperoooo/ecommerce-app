@@ -2,7 +2,7 @@
 
 [![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=white)](https://reactjs.org) [![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org) [![Tailwind](https://img.shields.io/badge/Tailwind-06B6D4?style=flat&logo=tailwindcss&logoColor=white)](https://tailwindcss.com) [![React Router](https://img.shields.io/badge/React_Router-CA4245?style=flat&logo=react-router&logoColor=white)](https://reactrouter.com/) [![Vitest](https://img.shields.io/badge/Vitest-8B5CF6?style=flat&logo=vitest&logoColor=white)](https://vitest.dev) [![React Testing Library](https://img.shields.io/badge/RTL-@testing--library%2Freact-ffdd57?style=flat&logo=testinglibrary&logoColor=black)](https://testing-library.com/docs/react-testing-library/intro/) [![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat&logo=vite&logoColor=white)](https://vitejs.dev)
 
-A multi-page e-commerce platform for high-end audio equipment. This project demonstrates a pixel-perfect implementation of a complex design system, featuring robust global state management, custom form validation, and a comprehensive testing suite.
+A multi-page e-commerce platform for high-end audio equipment. This project demonstrates a high-fidelity implementation of a complex design system, featuring robust global state management, custom form validation, and a comprehensive testing suite.
 
 Highlights
 -----------------
